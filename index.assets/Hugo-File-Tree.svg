@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="406px" preserveAspectRatio="none" style="width:807px;height:406px;" version="1.1" viewBox="0 0 807 406" width="807px" zoomAndPan="magnify"><defs><filter height="300%" id="fukbizlphugoj" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="99" x="10" y="189.4648"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="20" y="213">Hugo根目录</text><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="210" x="159" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="190" x="169" y="43.5352">archetypes(文件夹): 存放模版</text><path d="M109,207.709 L119,207.709 C134,207.709 134,38.2441 149,38.2441 L159,38.2441 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="188" x="159" y="76.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="169" y="100.0234">content(文件夹): 存放文章</text><path d="M109,207.709 L119,207.709 C134,207.709 134,94.7324 149,94.7324 L159,94.7324 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="234" x="159" y="132.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="214" x="169" y="156.5117">layout(排列): 存放页面布局的配置</text><path d="M109,207.709 L119,207.709 C134,207.709 134,151.2207 149,151.2207 L159,151.2207 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="290" x="159" y="189.4648"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="270" x="169" y="213">public(发布): 存放最终转化出来的所有页面</text><path d="M109,207.709 L119,207.709 C134,207.709 134,207.709 149,207.709 L159,207.709 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="637" x="159" y="245.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="617" x="169" y="269.4883">resources(资源文件): 如果你需要使用layout自定义页面样式，里面的照片等别的资源可以放在这里</text><path d="M109,207.709 L119,207.709 C134,207.709 134,264.1973 149,264.1973 L159,264.1973 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="386" x="159" y="302.4414"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="366" x="169" y="325.9766">static(静态资源文件): 存放文章的照片，css，js等文件数据</text><path d="M109,207.709 L119,207.709 C134,207.709 134,320.6855 149,320.6855 L159,320.6855 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fukbizlphugoj)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="242" x="159" y="358.9297"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="222" x="169" y="382.4648">themes(主题): 可存放多种主题文件</text><path d="M109,207.709 L119,207.709 C134,207.709 134,377.1738 149,377.1738 L159,377.1738 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startmindmap
+
+* Hugo根目录
+** archetypes(文件夹): 存放模版
+** content(文件夹): 存放文章
+** layout(排列): 存放页面布局的配置
+** public(发布): 存放最终转化出来的所有页面
+** resources(资源文件): 如果你需要使用layout自定义页面样式，里面的照片等别的资源可以放在这里
+** static(静态资源文件): 存放文章的照片，css，js等文件数据
+** themes(主题): 可存放多种主题文件
+
+@endmindmap
+
+PlantUML version 1.2019.09(Tue Aug 27 00:19:51 CST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_144-b01
+Operating System: Mac OS X
+OS Version: 10.15.1
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

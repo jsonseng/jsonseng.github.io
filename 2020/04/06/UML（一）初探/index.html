@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>UML（一）初探 | Vince.Zheng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 前言1.1 它能为我带来什么好处2 目前我对UML的理解3 我常用的UML类型3.1 时序图3.2 类图3.3 活动图3.4 组件图3.5 状态图3.6 对象图3.7 部署图4 总结 1 前言 UML[1]是一种开放的方法，用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品的开放方法。 UML是一门通用的语言，在对于人与人之间的交流上，能提供跨编程语言的作用。在设计阶段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UML（一）初探">
+<meta property="og:url" content="https://jsonseng.github.io/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:description" content="1 前言1.1 它能为我带来什么好处2 目前我对UML的理解3 我常用的UML类型3.1 时序图3.2 类图3.3 活动图3.4 组件图3.5 状态图3.6 对象图3.7 部署图4 总结 1 前言 UML[1]是一种开放的方法，用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品的开放方法。 UML是一门通用的语言，在对于人与人之间的交流上，能提供跨编程语言的作用。在设计阶段">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/1d53824bd7fa0b3d17aac8c76458f982f27073724b65122619003355855bc71e.svg">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/3d3120e5c1f43381bc3efe58082317bd27b0892836c1a950ac324f8420e520ce.svg">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/08b484a69b9bd9c2d143c7c9472772e6373b427cdb5491237065eb6ed91d4003.svg">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/28e2cf784388347a6f101adffb14424b46162a5e534b6b9d35d631c5e35ec5ba.svg">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/f607ff2372d8a52f8f947da67d53e137c2f23ba9f56317e0f91c8ba3de93542a.svg">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/10eafddcdfcc4d2ac6ed64c4f8ee91bad3dbb020d34141cc693eecbcd12651b7.svg">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/b10144d58051b215c04512345e317b1cd3b47567739f3f06572df9cfd5a9b854.svg">
+<meta property="article:published_time" content="2020-04-05T16:35:54.000Z">
+<meta property="article:modified_time" content="2020-05-30T09:32:54.805Z">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="UML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsonseng.github.io/assert/puml/1d53824bd7fa0b3d17aac8c76458f982f27073724b65122619003355855bc71e.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+  <script data-ad-client="ca-pub-5732809570935099" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Vince.Zheng</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">这个开发有点懒</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jsonseng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UML（一）初探" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/" class="article-date">
+  <time datetime="2020-04-05T16:35:54.000Z" itemprop="datePublished">2020-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UML（一）初探
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a><ul><li><a href="#1.1-%E5%AE%83%E8%83%BD%E4%B8%BA%E6%88%91%E5%B8%A6%E6%9D%A5%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84">1.1 它能为我带来什么好处</a></li></ul></li><li><a href="#2-%E7%9B%AE%E5%89%8D%E6%88%91%E5%AF%B9uml%E7%9A%84%E7%90%86%E8%A7%A3">2 目前我对UML的理解</a></li><li><a href="#3-%E6%88%91%E5%B8%B8%E7%94%A8%E7%9A%84uml%E7%B1%BB%E5%9E%8B">3 我常用的UML类型</a><ul><li><a href="#3.1-%E6%97%B6%E5%BA%8F%E5%9B%BE">3.1 时序图</a></li><li><a href="#3.2-%E7%B1%BB%E5%9B%BE">3.2 类图</a></li><li><a href="#3.3-%E6%B4%BB%E5%8A%A8%E5%9B%BE">3.3 活动图</a></li><li><a href="#3.4-%E7%BB%84%E4%BB%B6%E5%9B%BE">3.4 组件图</a></li><li><a href="#3.5-%E7%8A%B6%E6%80%81%E5%9B%BE">3.5 状态图</a></li><li><a href="#3.6-%E5%AF%B9%E8%B1%A1%E5%9B%BE">3.6 对象图</a></li><li><a href="#3.7-%E9%83%A8%E7%BD%B2%E5%9B%BE">3.7 部署图</a></li></ul></li><li><a href="#4-%E6%80%BB%E7%BB%93">4 总结</a></li></ul></div></p>
+<h1>1 前言</h1>
+<p>UML<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>是一种开放的方法，用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品的开放方法。<br>
+UML是一门通用的语言，在对于人与人之间的交流上，能提供跨编程语言的作用。在设计阶段，功能落地阶段，测试阶段，维护阶段，能起到提高效率的作用。</p>
+<p>使用UML能为我解决什么问题？这里我罗列一下我遇到的场景：</p>
+<ol>
+<li>在一个较大的功能（可能要1个月才能完成）来到的时候，在没有使用UML的时候，我可能会开发过程中，会发现我可能一开始做设计的时候没有考虑的点。或者我曾经想到过的点，到我真正编程的时候，就忘记了这个小点。在此过程，我需要不断反复修复不同地方的小点。</li>
+<li>当我开发这个功能的时候，可能我是要跟不同的同事合作（比如合作的同事是做 与我不同平台的 开发语言），此时我需要面对面通过一些画图来讲解我的功能设计。因为大家的开发语言不一致，对方要看我的源码是不太现实的</li>
+<li>当测试需要介入时，他们需要了解我们的内部逻辑，才能做好白盒测试<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>的测试用例设计。此时也不能直接让对方看代码，只能靠口口相传</li>
+<li>可能过了很久很久以后，有同事帮忙去定位模块的功能 Bugs，或者迭代优化。对于那位接手的同事，只能面对一片没有注释的源码，估计他只能在地下画圈圈了</li>
+</ol>
+<p>应对上面4个场景，使用了UML之后，会怎样：</p>
+<ol>
+<li>可以通过UML的元模型建立<code>功能模型，对象模型，动态模型</code>，反思自己在设计这个代码的时候，是否具备<code>完备性</code>。人的记忆是有限的，当设计完一个子模块，跳到另一个子模块设计的时候，可能就对上一个模块的记忆会出现模糊。而拥有已经写好的UML，可以让人快速建立对上一个子模块的记忆（UML每一个记录的细节点，都可以成为那位开发的记忆触发点）。当真正进行开发的时候，开发可以按照UML来进行相关的开发，尽可能保证所有的细节都被保留。</li>
+<li>当进行<code>技术评审</code>时，可以拿出UML，进行整个流程的讲解。让对方知道自己是怎么跑流程/功能。由于UML是统一性语言，对方能很快get到设计者的思路想法。Reviewer可以根据自己的经验给出一些建议，能让大家的沟通成本，思想的传递做得更好（PS：相对文字和图形，人脑对图形的接受能力显然更强）</li>
+<li>跟第二点一样，对于测试同事，也可以很快传达自己的思路</li>
+<li>从维护角度，通过UML和必要的文字描述，可以辅助接手的同事快速知道代码不同地方的作用。如果有了相关的UML，在代码的类头部也可以加入注释，把文档的link带上。</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>这里引用一段有意思的话:</p>
+<p>来自《Thinking in UML》<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>:<br>
+从微观角度说，这些独立的对象有着一系列奇妙而古怪的特性。例如，对象有着坚硬的外壳，从外部看来，除了它用来与外界交互的消息通道之外，对象内部就是一个黑匣子，什么也看不到，这称为<code>封装</code>；再例如对象可以结合在一起形成新的对象，结合后的对象具有前两者特性的总和，这称为<code>聚合</code>；对象可以繁育，产下的孩子将拥有父辈全部的本领，这称为<code>继承</code>；每个对象都有多个外貌，在不同情况下可以展现不同的外貌，但本质只有一个，这就是<code>接口</code>；而多个对象却可能长着相同的脸，但同样的这张脸背后却是不同的对象，它们有着不同的行为，这就是<code>多态</code>。</p>
+<p>从宏观角度说，对象是“短视”的，它不知道也无法理解它所处的宏观环境，也不知道它的行为会对整个宏观环境造成怎样的影响。它只知道与它有着联系的身边的一小群伙伴，这称为<code>依赖</code>，并与小伙伴间保持着信息交流的关系，这称为<code>耦合</code>。同时对象也是“自私”的，即便在伙伴之间，每个对象也仍然顽固地保护着自己的领地，这称为<code>类属性</code>，只允许其他人通过它打开的小小窗口，这称为方法，进行交流，从不允许对方进入它的领地。</p>
+<p>然而对象也喜欢群居，并且总是“物以类聚，人以群分”。这些群居的对象有着一些相似的性质，它们依靠这些相似的性质来组成一个部落。对象们寻找相似性质并组成部落的过程称为抽象，它们组成的部落称为<code>类</code>；部落里的每个成员既有共同的性质又有自己的个性，我们只有把特有的个性赋给部落成员才能区分它们并使它们活动起来，这称为<code>实例化</code>。</p>
+</div>
+<h2 id="1-1-它能为我带来什么好处">1.1 它能为我带来什么好处</h2>
+<p>从我目前几个月的使用情况来讲：</p>
+<ol>
+<li>前期设计上：对我在做功能设计的时候，可以<code>低成本</code>画出功能上是怎么运作，每一步是怎么做的，是否有遗漏没有考虑到的地方</li>
+<li>合作上：可以使用它跟合作的开发介绍这个功能是怎样，让对端理解我的设计，提出意见</li>
+<li>测试上：可以让测试知道其内部的运作模式是怎样的（可用于技术评审上讲解功能展示，这里注意要补充一些必要的文字，如果单纯丢文档，可能信息不足，对于测试同事会懵逼），能做出相关的白盒测试用例。</li>
+<li>维护上：人员的流动，业务的交接，这是无法避免。对于接手业务的同事来讲，必要的文档，能让他们更快去理解原来功能的设计</li>
+<li>跨部门支援：当别的部门想直接使用本部门已经完备的功能，这是可以通过这部分的文档，快速让对方知道要怎么接入</li>
+</ol>
+<h1>2 目前我对UML的理解</h1>
+<p>在了解有什么UML之前，可以先思考一下，在哪里用到UML，怎么使用UML。这里有一个概念要介绍一下。</p>
+<ol>
+<li>建模：指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达</li>
+</ol>
+<p>以我目前使用到的场景，有以下三个场景：</p>
+<ol>
+<li>了解需求后，根据经验与了解到的事情，把关键的要素罗列出来，通过<code>活动图</code>描述整体走下来的过程。让参与者达成一致，避免大家理解的差异</li>
+<li>对具体的一个功能，其内部逻辑的交互过程通过时序图描述出来。有什么作用，请看下面两点
+<ol>
+<li>自我回述查看是否哪里的一个拐点我理解不足，是否我需要去了解更多</li>
+<li>可以跟他人沟通，让双方达成一致的观点，或者对方可以补充我思考不足的地方</li>
+</ol>
+</li>
+<li>跨部门合作的适合，明确双方的一个交互<code>活动图</code>，明确双方的职责在什么地方。与第一点相似，但是这里偏向双方的技术栈是不同，可以通过统一语言，让双方明白交互物，输入/输出是什么。</li>
+</ol>
+<h1>3 我常用的UML类型</h1>
+<p>我比较常用的UML有以下几种：</p>
+<ol>
+<li>时序图</li>
+<li>类图</li>
+<li>活动图</li>
+<li>组件图</li>
+<li>状态图</li>
+</ol>
+<p>不常用的UML图有以下：</p>
+<ol>
+<li>对象图</li>
+<li>部署图</li>
+</ol>
+<p>以下将展示一下上面讲到的图的例子</p>
+<h2 id="3-1-时序图">3.1 时序图</h2>
+<p>时序图<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>：通过描述对象之间发送消息的时间顺序显示多个对象之间的动态协作。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/1d53824bd7fa0b3d17aac8c76458f982f27073724b65122619003355855bc71e.svg"/>
+<h2 id="3-2-类图">3.2 类图</h2>
+<p>类图<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：显示了模型的静态结构，特别是模型中存在的类、类的内部结构以及它们与其他类的关系等。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/3d3120e5c1f43381bc3efe58082317bd27b0892836c1a950ac324f8420e520ce.svg"/>
+<h2 id="3-3-活动图">3.3 活动图</h2>
+<p>活动图<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>: 阐明了业务用例实现的工作流程。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/08b484a69b9bd9c2d143c7c9472772e6373b427cdb5491237065eb6ed91d4003.svg"/>
+<h2 id="3-4-组件图">3.4 组件图</h2>
+<p>组件图<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>：表示组件是如何互相组织以构建更大的组件或是软件系统的。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/28e2cf784388347a6f101adffb14424b46162a5e534b6b9d35d631c5e35ec5ba.svg"/>
+<h2 id="3-5-状态图">3.5 状态图</h2>
+<p>状态图<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>：描述一个实体基于事件反应的动态行为，显示了该实体如何根据当前所处的状态对不同的事件做出反应。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/f607ff2372d8a52f8f947da67d53e137c2f23ba9f56317e0f91c8ba3de93542a.svg"/>
+<h2 id="3-6-对象图">3.6 对象图</h2>
+<p>对象图<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>: 显示了一组对象(类的实例)和他们之间的关系。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/10eafddcdfcc4d2ac6ed64c4f8ee91bad3dbb020d34141cc693eecbcd12651b7.svg"/>
+<h2 id="3-7-部署图">3.7 部署图</h2>
+<p>部署图<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>：用来显示系统中软件和硬件的物理架构。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/b10144d58051b215c04512345e317b1cd3b47567739f3f06572df9cfd5a9b854.svg"/>
+<h1>4 总结</h1>
+<p>以上是我为什么会投入去了解和使用UML的原因，基本的例子给大家看看各种图的样式。后面会讲解我针对不同的UML的日常使用理解与结合PlantUML<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>是如何使用的介绍。工具能让我在一些不必要的消耗上减少，focus更多的精力在工具无法解决的领域</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener">维基百科对UML的解释</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95" target="_blank" rel="noopener">白盒测试：百度百科</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Thinking in UML，作者：谭云杰，可以在微信读书上找到 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E6%97%B6%E5%BA%8F%E5%9B%BE" target="_blank" rel="noopener">时序图百度百科</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E7%B1%BB%E5%9B%BE" target="_blank" rel="noopener">类图百度百科</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E5%8A%A8%E6%80%81%E5%9B%BE/741412?fromtitle=%E6%B4%BB%E5%8A%A8%E5%9B%BE&amp;fromid=9454978" target="_blank" rel="noopener">活动图 百度百科</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/%E7%BB%84%E4%BB%B6%E5%9B%BE" target="_blank" rel="noopener">组件图 维基百科</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E7%8A%B6%E6%80%81%E5%9B%BE" target="_blank" rel="noopener">状态图 百度百科</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E5%AF%B9%E8%B1%A1%E5%9B%BE" target="_blank" rel="noopener">对象图 百度百科</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p><a href="https://baike.baidu.com/item/%E9%83%A8%E7%BD%B2%E5%9B%BE" target="_blank" rel="noopener">部署图 百度百科</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p><a href="https://plantuml.com/zh/" target="_blank" rel="noopener">PlantUML官网</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jsonseng.github.io/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/" data-id="ckbuzt65b0000wrt09tly2cit" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          日志规范
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">markdown-it-alerts语法支持</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hugo/" rel="tag">Hugo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VNote/" rel="tag">VNote</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPS/" rel="tag">WPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown-it/" rel="tag">markdown-it</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hugo/" style="font-size: 20px;">Hugo</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VNote/" style="font-size: 10px;">VNote</a> <a href="/tags/WPS/" style="font-size: 20px;">WPS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/markdown-it/" style="font-size: 10px;">markdown-it</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">开发规范</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">效率工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/">日志规范</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/">UML（一）初探</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">markdown-it-alerts语法支持</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">时间管理工具Toggl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/">网页浏览全键盘操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Vince.Zheng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- 享受生活的推荐 -->
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-5732809570935099"
+      data-ad-slot="9188296947"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</body>
+</html>

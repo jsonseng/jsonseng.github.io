@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Vince.Zheng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Vince.Zheng">
+<meta property="og:url" content="https://jsonseng.github.io/page/2/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:locale" content="zh">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content=" C++">
+<meta property="article:tag" content=" SDK">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+  <script data-ad-client="ca-pub-5732809570935099" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Vince.Zheng</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">这个开发有点懒</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jsonseng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-笔画绘制/笔画绘制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/30/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/" class="article-date">
+  <time datetime="2016-08-30T08:06:02.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/30/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/">笔迹绘制探索</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>线段基本组成结构</h1>
+<ul>
+<li>点</li>
+<li>点上的压感</li>
+<li>点上的高度与方向角</li>
+</ul>
+<hr>
+<h2 id="点">点</h2>
+<div class="side-by-side">
+    <div class="toleft">
+        <img class="image" src="/笔画绘制/touchPoint.png" alt="Alt Text">
+        <figcaption class="caption">图1（通过手指采样，频率120次／秒）</figcaption>
+    </div>
+> 我们可以看到充满棱角的线段，这是点的数目不够密集，无法做到最大程度的还原情况。在iOS上采样的情况是120次／秒。我们再看下面图2
+<div class="side-by-side">
+    <div class="toleft">
+        <p>右侧图2相对更加平滑，这条线段是通过Apple Pencil进行采样绘制，其频率达到240次／秒。能够更大程度还原点的情况</p>
+    </div>
+</div>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/ApplePencil.png" alt="ApplePencil"></p>
+<blockquote>
+<p>通过以上图，我们看到如果需要绘制顺滑的线段，从实际中最简单的方式是通过采样频率更高来完成。但是这样就存在两个问题。1、采样数据变大，2、需要设备支持更大的采样率，或者需要外设（比如Apple Pencil）去支持。但是否我们可以通过算法去做更多的事情???</p>
+</blockquote>
+<hr>
+<h2 id="点上的压感">点上的压感</h2>
+<p>在我们常规的设备情况下，是无法获取到压感，如果要获取到真实的压感，必须通过传感器来完成。</p>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/force.png" alt="Force Image"></p>
+<figcaption class="caption">上图的横坐标表示第几个点，纵坐标表示点的压感值（从官方提供的接口直接获取，并无处理）。总的数据进行了排序，通过压感值的大小进行过排序，越排在后面的点，压感值越大。</figcaption>
+<br>
+<p>通过 Apple Pencil 压感方面的采样，从图形上来看，都是比较渐变顺滑。没有出现断崖式的压感变化，可以看出Apple Pencil在压感方面做得挺细腻的。个人从数据上看，渐变的精度能达到小数后9位。实际上，我们在使用上肯定没那么精细，毕竟绘制上最小精度只能达到一像素。</p>
+<blockquote>
+<p>这里插个小插曲，压感级别目前分1024，2048未来可能有更多（1024级适合于初学者及非专业人士，2048适合高级用户）。有些专业人士猜测Apple Pencil已经达到2048压感级别，但是官方并没有对此做出说法。这里我也想埋个问题：是否只有外设才能实现压感，是否有别的数据可以转化成压感（比如速度??）。有机会弄篇关于压感判断的文章吧，哈哈，继续下文</p>
+</blockquote>
+<hr>
+<h2 id="点上的高度与方向角">点上的高度与方向角</h2>
+<p>这两个属性，我想会比较陌生它的概念。可以这么理解，如果有了这两个数据，你就可以知道用户怎么拿着笔去触碰设备。来个图看看</p>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/altitude-azimuth.png" alt="Altitude-Azimuth Image"></p>
+<figcaption class="caption">altitude(高度)，azimuth(方位角)</figcaption>
+<br>
+<blockquote>
+<p>有了以上的两个数据，其实就可以做到模拟画笔渐变过程。我们在拿铅笔进行画画的时候，总会遇到打阴影的过程，而这种画法画出来的线并不是均匀颜色深度，越靠近笔头的地方，颜色越深。如果没有以上两个数据，我们难以判断，哪里该深，哪里该浅。</p>
+</blockquote>
+<div class="breaker"></div>
+# 通过绘制方法－绘制－平滑线段
+<blockquote>
+<p>是否有想过这么一个问题，当采样率不够的时候，我们如何继续画出平滑的线段</p>
+</blockquote>
+<p>此处我用的是画出一个最接近原有轨迹的线段（信息实在不够，无法还原真实的轨迹）。二阶贝塞尔曲线</p>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/Bezier.gif" alt="Bezier Image"></p>
+<figcaption class="caption">一个起点，一个控制点，一个终点。形成最美好的弧线</figcaption>
+<br>
+<p>绘制无粗细变化的线段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; iOS Code</span><br><span class="line">CGPathMoveToPoint(path, NULL, pointFrom.x, pointFrom.y);</span><br><span class="line">CGPathAddQuadCurveToPoint(path, NULL, controlPoint.x, controlPoint.y, pointTo.x, pointTo.y);</span><br><span class="line"></span><br><span class="line">CGContextAddPath(ctx, path);</span><br><span class="line">CGContextSetStrokeColorWithColor(ctx,penColor.CGColor);</span><br><span class="line">CGContextSetLineWidth(ctx, lineWidth);</span><br><span class="line">CGContextDrawPath(ctx, kCGPathStroke);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此处你可能会遇到一个问题，何以开始点，控制点，终止点。如果以采样的点，那岂不是要手指移动一个遥远的位置才能开始画，对于用户来说，会觉得很突兀。怎么线段突然就出现了。那第四个点出现，我又该怎么处理，不画？？？等第五个点出现吗？？岂不是出现的线可能有时紧贴手指，有时又远离手指好怪</p>
+</blockquote>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/signOptimization.jpg" alt="sign optimization Image"></p>
+<figcaption class="caption">原设备采样点（红点），通过采样点得到的中点（蓝点），个人策略真正绘制的线段（绿色线段）</figcaption>
+<br>
+<p>由于原来的采样点不足，贝塞尔曲线需要起点、控制点、终点。所以采取了计算出两个采样点的中点，来衍生出一个新的点。这样除了第一个采样点外，每增加一个采样点，就会增加一个中点。通过使用中点作为起点、终点，采样点作为控制点，就可以绘制出接近原轨迹的线段。如此一来，我们就可以绘制一条平滑的线，看下下面的效果图</p>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/signInk.png" alt="signInk Image">{: class=“bigger-image” }</p>
+<div class="breaker"></div>
+# 粗细变化的笔迹
+<p>对于粗细变化的笔迹，我们将不能只是stoke轨迹，而需要的是fill这个轨迹，问题我们怎么去形成不规则的轨迹path，先看看效果图</p>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/strokeInk.PNG" alt="strokeInk Image">{: class=“bigger-image” }</p>
+<br>
+<blockquote>
+<p>以下只是个人策略，每个人都有其一套算法，我来讲讲我的</p>
+</blockquote>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/calculatePath.png" alt="strokeInk Image"></p>
+<figcaption class="caption">原设备采样点（红点），通过采样点得到的中点（蓝点）<br> 黄线G、H上的蓝点，是线上绿点的中点。线上两个绿点的距离代表笔迹经过蓝点时的笔宽 <br> A、B、C与H线垂直，D、E、F与G线垂直 </figcaption>
+<br>
+<p>我们可以通过线段的垂直关系，得出四个二元一次方程组计算橘色点的位置坐标。使用绿点－橘色点－绿点这样的关系可以在上方绘制一个贝塞尔曲线，下方一个贝塞尔曲线，再结合两个半圆，就可以弄出一个填充路径（Fill Path）</p>
+<blockquote>
+<p>可以结合<a href="http://baike.baidu.com/view/3144319.htm" target="_blank" rel="noopener">矩阵求解</a>，更快哟</p>
+</blockquote>
+<p>那个时候，我就在想，我的确是得到了两个橘色点的坐标，但是前提我还要知道绿点的坐标，我只知道绿点间的距离（笔迹经过蓝点的形成的笔宽我们是知道的，它等同于两个绿点间距离）。当时我就在想，我要求又要去求绿点的坐标，好累！！！再上图</p>
+<p><img src="/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/perpendicularBisector.png" alt="perpendicularBisector Image"></p>
+<figcaption class="caption">原设备采样点（红点F），通过采样点得到的中点（蓝点B）<br> 蓝点B为绿点A、C的中点 <br> 线段BE、EF相互垂直，线段BD、AD相互垂直 </figcaption>
+<br>
+<p>从图关系可看出，三角形ABD与三角形BEF是相似三角形。我们已知点B、点F坐标，从而可以推算出BE，EF的长度。AC的长度我们也是知道的（笔迹经过蓝点的形成的笔宽我们是知道的，它等同于两个绿点间距离）。</p>
+<blockquote>
+<p>根据相似三角形公式，我们能得到以下关系从而计算出AD、BD，再推算出A、C点的坐标位置</p>
+</blockquote>
+<p>$$<br>
+\frac {AB} {BF} = \frac {AD} {BE} = \frac {BD} {EF}<br>
+$$</p>
+<h1>未完待续</h1>
+<blockquote>
+<p>关于如果加入高度、方位角目前还没做出什么实现，也不好说。谢谢大家用宝贵的时间看完此文章，如果有什么好想法，一起交流交流，邮箱你懂的</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jsonseng.github.io/2016/08/30/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/" data-id="ckbuzt67t000swrt0f4g59qez" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WPS/" rel="tag">WPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hugo/" rel="tag">Hugo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VNote/" rel="tag">VNote</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPS/" rel="tag">WPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown-it/" rel="tag">markdown-it</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hugo/" style="font-size: 20px;">Hugo</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VNote/" style="font-size: 10px;">VNote</a> <a href="/tags/WPS/" style="font-size: 20px;">WPS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/markdown-it/" style="font-size: 10px;">markdown-it</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">开发规范</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">效率工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/">日志规范</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/">UML（一）初探</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">markdown-it-alerts语法支持</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">时间管理工具Toggl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/">网页浏览全键盘操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Vince.Zheng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- 享受生活的推荐 -->
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-5732809570935099"
+      data-ad-slot="9188296947"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>网页浏览全键盘操作 | Vince.Zheng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 前言2 Alfred用法2.1 利用Alfred找到Safari收藏的网页2.2 利用Alfred找到本地文件3 Safari插件Vimari4 总结 1 前言 对于此篇文章，大家可以从以下两个角度来看：  大家是否有很多网页存储在自己的收藏夹，时不时要去翻看呢？ 大家在浏览网页的时候，是否不太喜欢用鼠标，但是又不得不用？  如果都没有这方面的烦恼，那可以跳阅本文章哟！！ 2 Alfred用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页浏览全键盘操作">
+<meta property="og:url" content="https://jsonseng.github.io/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:description" content="1 前言2 Alfred用法2.1 利用Alfred找到Safari收藏的网页2.2 利用Alfred找到本地文件3 Safari插件Vimari4 总结 1 前言 对于此篇文章，大家可以从以下两个角度来看：  大家是否有很多网页存储在自己的收藏夹，时不时要去翻看呢？ 大家在浏览网页的时候，是否不太喜欢用鼠标，但是又不得不用？  如果都没有这方面的烦恼，那可以跳阅本文章哟！！ 2 Alfred用法">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://jsonseng.github.io/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233002036_1507899910.png">
+<meta property="og:image" content="https://jsonseng.github.io/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233103972_819269123.png">
+<meta property="article:published_time" content="2020-03-28T15:52:41.000Z">
+<meta property="article:modified_time" content="2020-05-30T09:32:54.808Z">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="效率工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsonseng.github.io/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233002036_1507899910.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+  <script data-ad-client="ca-pub-5732809570935099" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Vince.Zheng</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">这个开发有点懒</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jsonseng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-网页浏览全键盘操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-03-28T15:52:41.000Z" itemprop="datePublished">2020-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网页浏览全键盘操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a></li><li><a href="#2-alfred%E7%94%A8%E6%B3%95">2 Alfred用法</a><ul><li><a href="#2.1-%E5%88%A9%E7%94%A8alfred%E6%89%BE%E5%88%B0safari%E6%94%B6%E8%97%8F%E7%9A%84%E7%BD%91%E9%A1%B5">2.1 利用Alfred找到Safari收藏的网页</a></li><li><a href="#2.2-%E5%88%A9%E7%94%A8alfred%E6%89%BE%E5%88%B0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6">2.2 利用Alfred找到本地文件</a></li></ul></li><li><a href="#3-safari%E6%8F%92%E4%BB%B6vimari">3 Safari插件Vimari</a></li><li><a href="#4-%E6%80%BB%E7%BB%93">4 总结</a></li></ul></div></p>
+<h1>1 前言</h1>
+<p>对于此篇文章，大家可以从以下两个角度来看：</p>
+<ol>
+<li>大家是否有很多网页存储在自己的收藏夹，时不时要去翻看呢？</li>
+<li>大家在浏览网页的时候，是否不太喜欢用鼠标，但是又不得不用？</li>
+</ol>
+<p>如果都没有这方面的烦恼，那可以跳阅本文章哟！！</p>
+<h1>2 Alfred用法</h1>
+<p>Alfred是一款非常高效，可以代替系统自带的Spotlight软件。是一款拥有非常历史悠久历史的软件，我记得我开始接触它的时候，是在2013年的时候。具体你想了解，<a href="https://www.alfredapp.com" target="_blank" rel="noopener">可以点击此处进入它的官网了解它更多</a>。在这里我更多讲解一下我的用法。</p>
+<p>大家是否有遇到我一样的场景，比如以下：</p>
+<ol>
+<li>喜欢收藏很多页面到自己Safari收藏夹内。（当然这里会分门别类，以前就没分得很细，导致很多都要找很久才找回来）</li>
+<li>文件放到iCloud里面，也划分很多位置，层层嵌套的文件夹。</li>
+</ol>
+<p>每次想到好像我是有收集的这个信息的时候，我就要从这些成千上万的内容里面去找到当初我的收藏。阿，好累。此时Alfred就可以帮助到我了</p>
+<p>::: info<br>
+这里说一说，我平时喜欢spotlight的快捷键关闭了，将其快捷键改成了打开Alfred，完全替代系统<br>
+:::</p>
+<h2 id="2-1-利用Alfred找到Safari收藏的网页">2.1 利用Alfred找到Safari收藏的网页</h2>
+<ol>
+<li>点击Alfred软件的<code>Preferences...</code></li>
+<li>选择<code>Features</code>中的Web Bookmarks.<br>
+<img src="/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233002036_1507899910.png" alt=""></li>
+</ol>
+<p>此时Alfred就有权限访问你收藏夹内的内容。打开Alfred，搜索关键字，回车就可以快速打开你想要的网站。这里需要记住网站的开头，貌似模糊搜索支持一般般</p>
+<p><img src="/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233103972_819269123.png" alt=""></p>
+<h2 id="2-2-利用Alfred找到本地文件">2.2 利用Alfred找到本地文件</h2>
+<p>可能有人会提问，找到本地文件有什么特别的吗？Spotlight也支持呢！！！</p>
+<p>这里官方提供两个命令方式：</p>
+<ol>
+<li>用<code>访达/Finder</code>打开文件所在的文件夹，打开Alfred输入窗口，比如以下的命令。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find 文件名前部分</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>打开文件。打开Alfred输入窗口，比如以下的命令。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open 文件名前部分</span><br></pre></td></tr></table></figure>
+<h1>3 Safari插件Vimari</h1>
+<p>它是一款可以让你的双手在浏览Safari的时候，不用鼠标就可以操作的插件。<a href="https://github.com/televator-apps/vimari" target="_blank" rel="noopener">官网地址，可以在这里查看</a><br>
+你可以在Mac Store上下载这款软件，解放你的鼠标。<br>
+如果你有学过Vim，我相信你1分钟内就能解决。没学过也不影响，因为它并不会很复杂。</p>
+<p>我自己记住的方式：</p>
+<ul>
+<li>上下左右这几个操作多几次就差不多了</li>
+<li>gg: 我们玩游戏的时候，常常一句我们gg了，要重新来了，代表滚到页面的开始</li>
+<li>G：这个跟gg关联在一起记忆，没有太多的方法</li>
+<li>u/d：是一对比起 j k 操作一行行来要更加方便</li>
+<li>q/w: 代表前一个标签页/后一个标签页，比使用系统的<code>Ctrl + Tab</code>要舒服多了，记住在自己键盘的左上角</li>
+<li>x：联想到我们关页面的 x 标志</li>
+<li>t：就不太好用了，这个不会将聚焦点放到新建的标签页网页Link位置，这里还是用系统的快捷键反而合适。<code>Ctrl + t</code></li>
+<li>r: 联想到单词reload，总体来将还是挺好的。</li>
+</ul>
+<h1>4 总结</h1>
+<p>活用工具，让自己更加Focus在工具无法解决的问题，我相信会见到越来越棒的自己</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jsonseng.github.io/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" data-id="ckbuzt65q0005wrt0c63f7zx0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          时间管理工具Toggl
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/05/%E4%BD%BF%E7%94%A8Valine%E5%9C%A8Hugo%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/index/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Valine在Hugo添加评论功能</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hugo/" rel="tag">Hugo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VNote/" rel="tag">VNote</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPS/" rel="tag">WPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown-it/" rel="tag">markdown-it</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hugo/" style="font-size: 20px;">Hugo</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VNote/" style="font-size: 10px;">VNote</a> <a href="/tags/WPS/" style="font-size: 20px;">WPS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/markdown-it/" style="font-size: 10px;">markdown-it</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">开发规范</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">效率工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/">日志规范</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/">UML（一）初探</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">markdown-it-alerts语法支持</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">时间管理工具Toggl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/">网页浏览全键盘操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Vince.Zheng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- 享受生活的推荐 -->
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-5732809570935099"
+      data-ad-slot="9188296947"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</body>
+</html>

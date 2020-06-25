@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="172px" preserveAspectRatio="none" style="width:469px;height:172px;" version="1.1" viewBox="0 0 469 172" width="469px" zoomAndPan="magnify"><defs><filter height="300%" id="f1vb1n5tf2vz5w" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[08697289393bf1a7348b8f8a03e04260]
+entity node1--><polygon fill="#FEFECE" filter="url(#f1vb1n5tf2vz5w)" points="184,18,194,8,268,8,268,44.4883,258,54.4883,184,54.4883,184,18" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="258" x2="267" y1="18" y2="9"/><line style="stroke: #000000; stroke-width: 1.5;" x1="184" x2="258" y1="18" y2="18"/><line style="stroke: #000000; stroke-width: 1.5;" x1="258" x2="258" y1="18" y2="54.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="199" y="41.5352">node1</text><!--MD5=[d4bb979d073464a818782f912af531d1]
+entity node2--><polygon fill="#FEFECE" filter="url(#f1vb1n5tf2vz5w)" points="6,124,16,114,90,114,90,150.4883,80,160.4883,6,160.4883,6,124" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="80" x2="89" y1="124" y2="115"/><line style="stroke: #000000; stroke-width: 1.5;" x1="6" x2="80" y1="124" y2="124"/><line style="stroke: #000000; stroke-width: 1.5;" x1="80" x2="80" y1="124" y2="160.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="21" y="147.5352">node2</text><!--MD5=[ce73ee5bf40ab7733de1fca69906d2d9]
+entity node3--><polygon fill="#FEFECE" filter="url(#f1vb1n5tf2vz5w)" points="125,124,135,114,209,114,209,150.4883,199,160.4883,125,160.4883,125,124" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="199" x2="208" y1="124" y2="115"/><line style="stroke: #000000; stroke-width: 1.5;" x1="125" x2="199" y1="124" y2="124"/><line style="stroke: #000000; stroke-width: 1.5;" x1="199" x2="199" y1="124" y2="160.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="140" y="147.5352">node3</text><!--MD5=[e313cd1fffad6f9e70847970f7656420]
+entity node4--><polygon fill="#FEFECE" filter="url(#f1vb1n5tf2vz5w)" points="244,124,254,114,328,114,328,150.4883,318,160.4883,244,160.4883,244,124" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="318" x2="327" y1="124" y2="115"/><line style="stroke: #000000; stroke-width: 1.5;" x1="244" x2="318" y1="124" y2="124"/><line style="stroke: #000000; stroke-width: 1.5;" x1="318" x2="318" y1="124" y2="160.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="259" y="147.5352">node4</text><!--MD5=[b54cffcb1805eb1dc463624e689a5fe7]
+entity node5--><polygon fill="#FEFECE" filter="url(#f1vb1n5tf2vz5w)" points="363,124,373,114,447,114,447,150.4883,437,160.4883,363,160.4883,363,124" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="437" x2="446" y1="124" y2="115"/><line style="stroke: #000000; stroke-width: 1.5;" x1="363" x2="437" y1="124" y2="124"/><line style="stroke: #000000; stroke-width: 1.5;" x1="437" x2="437" y1="124" y2="160.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="378" y="147.5352">node5</text><!--MD5=[ede45bff198f30e1688a21af6fccdacf]
+link node1 to node2--><path d="M188.25,54.06 C158.04,71.7 115.89,96.34 85.69,113.98 " fill="none" id="node1-node2" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1c38991731ac61357412922d9bb6f5ed]
+link node1 to node3--><path d="M213.49,54.06 C203.48,71.7 189.5,96.34 179.49,113.98 " fill="none" id="node1-node3" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[d94f0511a1cd32e0ddbead2819a95ab1]
+link node1 to node4--><path d="M238.72,54.06 C248.91,71.7 263.12,96.34 273.29,113.98 " fill="none" id="node1-node4" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 1.0,3.0;"/><!--MD5=[9ba7e4fb1b25e2de591b6c33eefc42ba]
+link node1 to node5--><path d="M263.96,54.06 C294.34,71.7 336.73,96.34 367.09,113.98 " fill="none" id="node1-node5" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[74e89255e4ba0633567d9cb3ba1bd59c]
+@startuml
+
+node node1
+node node2
+node node3
+node node4
+node node5
+node1 - - node2
+node1 .. node3
+node1 ~~ node4
+node1 == node5
+
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 14.0.1+7
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

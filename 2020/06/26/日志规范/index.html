@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>日志规范 | Vince.Zheng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 背景2 日志规范2.1 分析需求2.2 一个日志文件 开始与结束2.3 应该写入什么2.3.1 环境信息2.3.2 过程和出错日志，该找谁解决2.3.3 日志等级的划分与作用2.3.4 一行日志的例子3 快捷工具3.1 使用tag划分日志 1 背景 我们大家都知道写日志是很重要的，但是要怎么写日志合适，什么节点该打日志，其实并没有人告诉我们。靠的是每一个各自的领悟能力，这里我们需要去完善这部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日志规范">
+<meta property="og:url" content="https://jsonseng.github.io/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:description" content="1 背景2 日志规范2.1 分析需求2.2 一个日志文件 开始与结束2.3 应该写入什么2.3.1 环境信息2.3.2 过程和出错日志，该找谁解决2.3.3 日志等级的划分与作用2.3.4 一行日志的例子3 快捷工具3.1 使用tag划分日志 1 背景 我们大家都知道写日志是很重要的，但是要怎么写日志合适，什么节点该打日志，其实并没有人告诉我们。靠的是每一个各自的领悟能力，这里我们需要去完善这部分">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/a4656c97b950c0b8cdf707b665da5d13ce90bfca6ce0c416f9ff3b428ed5383b.svg">
+<meta property="og:image" content="https://jsonseng.github.io/_v_images/20200622211539451_2096857063.png">
+<meta property="article:published_time" content="2020-06-25T16:00:08.000Z">
+<meta property="article:modified_time" content="2020-06-25T16:24:03.349Z">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="开发规范">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsonseng.github.io/assert/puml/a4656c97b950c0b8cdf707b665da5d13ce90bfca6ce0c416f9ff3b428ed5383b.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+  <script data-ad-client="ca-pub-5732809570935099" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Vince.Zheng</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">这个开发有点懒</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jsonseng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-日志规范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/" class="article-date">
+  <time datetime="2020-06-25T16:00:08.000Z" itemprop="datePublished">2020-06-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      日志规范
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="table-of-contents"><ul><li><a href="#1-%E8%83%8C%E6%99%AF">1 背景</a></li><li><a href="#2-%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83">2 日志规范</a><ul><li><a href="#2.1-%E5%88%86%E6%9E%90%E9%9C%80%E6%B1%82">2.1 分析需求</a></li><li><a href="#2.2-%E4%B8%80%E4%B8%AA%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6-%E5%BC%80%E5%A7%8B%E4%B8%8E%E7%BB%93%E6%9D%9F">2.2 一个日志文件 开始与结束</a></li><li><a href="#2.3-%E5%BA%94%E8%AF%A5%E5%86%99%E5%85%A5%E4%BB%80%E4%B9%88">2.3 应该写入什么</a><ul><li><a href="#2.3.1-%E7%8E%AF%E5%A2%83%E4%BF%A1%E6%81%AF">2.3.1 环境信息</a></li><li><a href="#2.3.2-%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BA%E9%94%99%E6%97%A5%E5%BF%97%EF%BC%8C%E8%AF%A5%E6%89%BE%E8%B0%81%E8%A7%A3%E5%86%B3">2.3.2 过程和出错日志，该找谁解决</a></li><li><a href="#2.3.3-%E6%97%A5%E5%BF%97%E7%AD%89%E7%BA%A7%E7%9A%84%E5%88%92%E5%88%86%E4%B8%8E%E4%BD%9C%E7%94%A8">2.3.3 日志等级的划分与作用</a></li><li><a href="#2.3.4-%E4%B8%80%E8%A1%8C%E6%97%A5%E5%BF%97%E7%9A%84%E4%BE%8B%E5%AD%90">2.3.4 一行日志的例子</a></li></ul></li></ul></li><li><a href="#3-%E5%BF%AB%E6%8D%B7%E5%B7%A5%E5%85%B7">3 快捷工具</a><ul><li><a href="#3.1-%E4%BD%BF%E7%94%A8tag%E5%88%92%E5%88%86%E6%97%A5%E5%BF%97">3.1 使用tag划分日志</a></li></ul></li></ul></div></p>
+<h1>1 背景</h1>
+<p>我们大家都知道写日志是很重要的，但是要怎么写日志合适，什么节点该打日志，其实并没有人告诉我们。靠的是每一个各自的领悟能力，这里我们需要去完善这部分，让日志能传承，积累，发展下去。让我们（开发，测试，技术支持）一起知道一套规范，Follow一套规范。低成本，高效一起协助定位问题，提高软件的质量。</p>
+<p>基于此，我们会疑惑，每次上报的问题，技术支持/测试 只有一个透传数据的任务，第一层接触的开发就需要去过滤，复现问题，确定问题应该找哪个部门来解决。借此引发，我们是否应该在日志的纬度能够去规避这个问题，让更多参与的人能直接看出问题是在哪里的？</p>
+<h1>2 日志规范</h1>
+<p>我们的日志里面有什么？<br>
+经过沟通，期望能统一 Android、iOS上日志的规范，让大家（开发、测试、技术支持）形成一个统一的规范，减少沟通和维护的成本</p>
+<h2 id="2-1-分析需求">2.1 分析需求</h2>
+<p>期望日志能记录什么，能给我们带来什么样的内容？</p>
+<ol>
+<li>tag：可以用于标记系列的日志Id【可用于筛选出一个功能其流程是怎样产生的】</li>
+<li>Function: 函数名，具体日志是在哪里产生的</li>
+<li>line: 具体日志是在文件的哪一行产生的</li>
+<li>当时软件、硬件环境是怎样的。到底遇到了什么问题？</li>
+<li>问题是怎么产生的，应该找谁去解决问题</li>
+</ol>
+<h2 id="2-2-一个日志文件-开始与结束">2.2 一个日志文件 开始与结束</h2>
+<p>目前的策略，采取的是一次APP进入到前台的时候，则会划分一个日志文件。可以简化日志的大小，也可以直接看到一次处于前台APP发生了什么事情。所有的日志将采取一个文件，这么做的一个好处，可以看到在时间维度上都发生了什么事情。而如果想要知道某一个功能具体的情况，可以通过 2.1 里所指的tag来划分出要的日志信息</p>
+<img src="/assert/puml/a4656c97b950c0b8cdf707b665da5d13ce90bfca6ce0c416f9ff3b428ed5383b.svg"/>
+<h2 id="2-3-应该写入什么">2.3 应该写入什么</h2>
+<p>日志这部分是一个case by case的场景，无法一开始就能决定所有的日志要怎么打印才是对。那我们反思，什么信息是有用的：</p>
+<ol>
+<li>环境信息</li>
+<li>过程和出错日志，该找谁解决</li>
+</ol>
+<h3 id="2-3-1-环境信息">2.3.1 环境信息</h3>
+<p>我们的研发过程，对于复现，或者发现是哪一个版本的固件才存在的问题，我们需要知道相关固件各个版本，软件版本，设备信息。此时可以使用日志将内容打印</p>
+<h3 id="2-3-2-过程和出错日志，该找谁解决">2.3.2 过程和出错日志，该找谁解决</h3>
+<p>往往我们出现问题是某一个具体的功能，此时可以通过<code>tag</code>来完成筛选一个功能的日志信息。那日志又应该怎么打印？</p>
+<p>我们从（What，When，How）来思考问题：</p>
+<ol>
+<li>What：我们应该打印什么？此处我的经验告诉有几个地方可以打印：
+<ol>
+<li>功能流程触发，可以知道这个功能开始了</li>
+<li>功能出错，可以知道当时出错的原因<br>
+出错这里会划分多个维度的：
+<ol>
+<li>因为V1协议返回的异常【此时可以带上告知看日志的人，需要找哪个模块的固件定位】</li>
+<li>因为状态校验不通过【此时可以带上告知看日志的人，需要找此功能的SDK研发定位】</li>
+<li>因为当下的条件不满足引起无法触发功能【此时可能是上层调用的顺序问题，可以提出建议需要调用什么接口之后再使用此接口的建议】</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>When：我们的日志要遵循一个规则，不能疯狂打印，这样会有打印的效率，建议只打印以下条件的
+<ol>
+<li>如果这个动作是一次性，只有用户驱动才会触发，可以打印</li>
+<li>在满足条件1的情况下，出现判断错误的时候，需要打印</li>
+</ol>
+</li>
+<li>How：对于流程过程，可以采取 info 等级的日志。对于出现异常，但是不影响流程的日志，使用warning。对于出现异常，但影响流程功能的采取error</li>
+</ol>
+<p>以上我们打印出了一个功能的过程，与出错原因了。那还需要一个日志，那就是具体这个日志可以找谁解决问题。</p>
+<p>这里我们将要求开发在打印出错定位的日志时，带上具体可能是谁引起的错误，（开发、测试、技术支持）应该找谁来解决这个问题。</p>
+<h3 id="2-3-3-日志等级的划分与作用">2.3.3 日志等级的划分与作用</h3>
+<p>日志等级控制，在不同的配置环境下，打印不同等级的日志<br>
+对于日志部分，我们可以划分以下几个等级：</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>作用</th>
+<th>Release环境</th>
+<th>Debug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fatal</td>
+<td>非常严重的问题，需要使用此等级来打印</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>error</td>
+<td>出现异常错误的等级</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>warning</td>
+<td>警告，虽然可以继续执行，但是建议消除</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>info</td>
+<td>打印相关信息</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>调试使用的等级</td>
+<td>禁止</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td>调试使用的等级</td>
+<td>禁止</td>
+<td>可以</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-3-4-一行日志的例子">2.3.4 一行日志的例子</h3>
+<p>上面讲了这么多，那一行日志应该是怎样？这里举个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20:19:30.0300 function:line [E][Camera_Shoot][Custom Information][Please find the SDK developer]</span><br></pre></td></tr></table></figure>
+<p>一行的日志有以下的信息：</p>
+<ol>
+<li>时间戳【例子中的 <font color="red">20:19:30.0300</font>】：只需要 时，分，秒，毫秒的单位。哪年哪月那日由日志文件已经带上了，这里无需，可以简化日志量</li>
+<li>具体的函数和行【例子中的 <font color="red">function:line</font>】：给开发可以知道是在哪一行打印这个日志的。行数有时可以用于确定与出问题当时的代码是否一致</li>
+<li>日志等级【例子中的 <font color="red">[E]</font>】：这个日志是用来说明什么的，这块靠的更多是开发的sense。如果你明确要定位哪一个问题，可以通过第4点的tag，加上这个等级，可以直接筛选出一个功能所有的错误信息。比如例子可以筛选出 <code>[E][Camera_Shoot]</code></li>
+<li>功能的Tag【例子中的 <font color="red">[Camera_Shoot]</font>】：可用于搜索一个功能的整个流程是怎么跑的</li>
+<li>自定义内容【例子中的 <font color="red">[Custom Information]</font>】：这块全由开发决定，主要是用于定位问题在哪里</li>
+<li>建议问题可能要找谁解决【例子中的 <font color="red">[Please find the SDK developer]</font>】：因为我们的日志是考虑 技术支持/测试 也可以参与进来指派问题给谁</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>可能有人会疑惑，那怎么保证第四点的tag一致？<br>
+这里就引发使用跨平台的方式来完成tag的定义，上层来传递枚举值，内部决定枚举对应的字符串内容是什么。这样能保证在不同平台一样的功能tag是一致的。</p>
+</div>
+<div class="alert alert-warning" role="alert">
+<p>这里建议在写入日志方面采取：</p>
+<ol>
+<li>尽量简洁，尽量能表达意思即可</li>
+<li>避免内部自动持续疯狂打印同一个日志。非用户驱动的</li>
+</ol>
+</div>
+<h1>3 快捷工具</h1>
+<h2 id="3-1-使用tag划分日志">3.1 使用tag划分日志</h2>
+<p>请按照一下的步骤完成筛选你要的日志部分：</p>
+<ol>
+<li>安装 Visual Studio Code</li>
+<li>安装 Visual Studio Code插件Filter Line</li>
+<li>打开你想要从中筛选出来的完整日志文件（即夹杂各种信息）</li>
+<li>使用快捷键 Command + Shift + P，搜索<br>
+<img src="/_v_images/20200622211539451_2096857063.png" alt=""></li>
+<li>输入你想要筛选日志行里面的目标关键词</li>
+<li>即可得到你要的功能整个过程的日志信息</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jsonseng.github.io/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/" data-id="ckbuzt65o0004wrt0cp9l1ij0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">开发规范</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UML（一）初探</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hugo/" rel="tag">Hugo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VNote/" rel="tag">VNote</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPS/" rel="tag">WPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown-it/" rel="tag">markdown-it</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hugo/" style="font-size: 20px;">Hugo</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VNote/" style="font-size: 10px;">VNote</a> <a href="/tags/WPS/" style="font-size: 20px;">WPS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/markdown-it/" style="font-size: 10px;">markdown-it</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">开发规范</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 15px;">效率工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/">日志规范</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/">UML（一）初探</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">markdown-it-alerts语法支持</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">时间管理工具Toggl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/">网页浏览全键盘操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Vince.Zheng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- 享受生活的推荐 -->
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-5732809570935099"
+      data-ad-slot="9188296947"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="243px" preserveAspectRatio="none" style="width:410px;height:243px;" version="1.1" viewBox="0 0 410 243" width="410px" zoomAndPan="magnify"><defs><filter height="300%" id="f1xmaxzqnw81hu" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[728d23d58e22fa55ea5a0544ed140874]
+cluster net.dummy--><polygon fill="#DDDDDD" filter="url(#f1xmaxzqnw81hu)" points="22,24,108,24,115,46.4883,132,46.4883,132,231,22,231,22,24" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="115" y1="46.4883" y2="46.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="80" x="26" y="39.5352">net.dummy</text><!--MD5=[33e59a955278c32565a5bf6f302dc15e]
+cluster net.foo--><polygon fill="#FFFFFF" filter="url(#f1xmaxzqnw81hu)" points="156,132,212,132,219,154.4883,260,154.4883,260,231,156,231,156,132" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="156" x2="219" y1="154.4883" y2="154.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="160" y="147.5352">net.foo</text><!--MD5=[a192a6f29c441cea5ef200ac5f138a29]
+cluster net.unused--><polygon fill="#FFFFFF" filter="url(#f1xmaxzqnw81hu)" points="284,132,368,132,375,154.4883,388,154.4883,388,231,284,231,284,132" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="284" x2="375" y1="154.4883" y2="154.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="288" y="147.5352">net.unused</text><!--MD5=[cb3a15f9f15e1ea33d1c370015e332c8]
+class net.dummy.Person--><rect fill="#FEFECE" filter="url(#f1xmaxzqnw81hu)" height="48" id="net.dummy.Person" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="44.5" y="167"/><ellipse cx="59.5" cy="183" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M61.9731,189.1431 Q61.3921,189.4419 60.7529,189.5913 Q60.1138,189.7407 59.4082,189.7407 Q56.9014,189.7407 55.5815,188.0889 Q54.2617,186.437 54.2617,183.3159 Q54.2617,180.1865 55.5815,178.5347 Q56.9014,176.8828 59.4082,176.8828 Q60.1138,176.8828 60.7612,177.0322 Q61.4087,177.1816 61.9731,177.4805 L61.9731,180.2031 Q61.3423,179.6221 60.7488,179.3523 Q60.1553,179.0825 59.5244,179.0825 Q58.1797,179.0825 57.4949,180.1492 Q56.8101,181.2158 56.8101,183.3159 Q56.8101,185.4077 57.4949,186.4744 Q58.1797,187.541 59.5244,187.541 Q60.1553,187.541 60.7488,187.2712 Q61.3423,187.0015 61.9731,186.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="73.5" y="187.5352">Person</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="45.5" x2="114.5" y1="199" y2="199"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="45.5" x2="114.5" y1="207" y2="207"/><!--MD5=[8ac4e197c3b047d8b0ccbf03414837ae]
+class net.dummy.Meeting--><rect fill="#FEFECE" filter="url(#f1xmaxzqnw81hu)" height="48" id="net.dummy.Meeting" style="stroke: #A80036; stroke-width: 1.5;" width="77" x="38.5" y="59"/><ellipse cx="53.5" cy="75" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M55.9731,81.1431 Q55.3921,81.4419 54.7529,81.5913 Q54.1138,81.7407 53.4082,81.7407 Q50.9014,81.7407 49.5815,80.0889 Q48.2617,78.437 48.2617,75.3159 Q48.2617,72.1865 49.5815,70.5347 Q50.9014,68.8828 53.4082,68.8828 Q54.1138,68.8828 54.7612,69.0322 Q55.4087,69.1816 55.9731,69.4805 L55.9731,72.2031 Q55.3423,71.6221 54.7488,71.3523 Q54.1553,71.0825 53.5244,71.0825 Q52.1797,71.0825 51.4949,72.1492 Q50.8101,73.2158 50.8101,75.3159 Q50.8101,77.4077 51.4949,78.4744 Q52.1797,79.541 53.5244,79.541 Q54.1553,79.541 54.7488,79.2712 Q55.3423,79.0015 55.9731,78.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="67.5" y="79.5352">Meeting</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="39.5" x2="114.5" y1="91" y2="91"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="39.5" x2="114.5" y1="99" y2="99"/><!--MD5=[39b7869a7bbdf1e166c12fc90d8f21cb]
+class net.foo.Person--><rect fill="#FEFECE" filter="url(#f1xmaxzqnw81hu)" height="48" id="net.foo.Person" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="172.5" y="167"/><ellipse cx="187.5" cy="183" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M189.9731,189.1431 Q189.3921,189.4419 188.7529,189.5913 Q188.1138,189.7407 187.4082,189.7407 Q184.9014,189.7407 183.5815,188.0889 Q182.2617,186.437 182.2617,183.3159 Q182.2617,180.1865 183.5815,178.5347 Q184.9014,176.8828 187.4082,176.8828 Q188.1138,176.8828 188.7612,177.0322 Q189.4087,177.1816 189.9731,177.4805 L189.9731,180.2031 Q189.3423,179.6221 188.7488,179.3523 Q188.1553,179.0825 187.5244,179.0825 Q186.1797,179.0825 185.4949,180.1492 Q184.8101,181.2158 184.8101,183.3159 Q184.8101,185.4077 185.4949,186.4744 Q186.1797,187.541 187.5244,187.541 Q188.1553,187.541 188.7488,187.2712 Q189.3423,187.0015 189.9731,186.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="201.5" y="187.5352">Person</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="173.5" x2="242.5" y1="199" y2="199"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="173.5" x2="242.5" y1="207" y2="207"/><!--MD5=[5f30d223f747d8ac33b5eb84f5743c2a]
+class net.unused.Person--><rect fill="#FEFECE" filter="url(#f1xmaxzqnw81hu)" height="48" id="net.unused.Person" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="300.5" y="167"/><ellipse cx="315.5" cy="183" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M317.9731,189.1431 Q317.3921,189.4419 316.7529,189.5913 Q316.1138,189.7407 315.4082,189.7407 Q312.9014,189.7407 311.5815,188.0889 Q310.2617,186.437 310.2617,183.3159 Q310.2617,180.1865 311.5815,178.5347 Q312.9014,176.8828 315.4082,176.8828 Q316.1138,176.8828 316.7612,177.0322 Q317.4087,177.1816 317.9731,177.4805 L317.9731,180.2031 Q317.3423,179.6221 316.7488,179.3523 Q316.1553,179.0825 315.5244,179.0825 Q314.1797,179.0825 313.4949,180.1492 Q312.8101,181.2158 312.8101,183.3159 Q312.8101,185.4077 313.4949,186.4744 Q314.1797,187.541 315.5244,187.541 Q316.1553,187.541 316.7488,187.2712 Q317.3423,187.0015 317.9731,186.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="329.5" y="187.5352">Person</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="301.5" x2="370.5" y1="199" y2="199"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="301.5" x2="370.5" y1="207" y2="207"/><!--MD5=[8e57f1f895cc705ad5645d1ac73dc0a2]
+class BaseClass--><rect fill="#FEFECE" filter="url(#f1xmaxzqnw81hu)" height="48" id="BaseClass" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="156.5" y="59"/><ellipse cx="171.5" cy="75" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M173.9731,81.1431 Q173.3921,81.4419 172.7529,81.5913 Q172.1138,81.7407 171.4082,81.7407 Q168.9014,81.7407 167.5815,80.0889 Q166.2617,78.437 166.2617,75.3159 Q166.2617,72.1865 167.5815,70.5347 Q168.9014,68.8828 171.4082,68.8828 Q172.1138,68.8828 172.7612,69.0322 Q173.4087,69.1816 173.9731,69.4805 L173.9731,72.2031 Q173.3423,71.6221 172.7488,71.3523 Q172.1553,71.0825 171.5244,71.0825 Q170.1797,71.0825 169.4949,72.1492 Q168.8101,73.2158 168.8101,75.3159 Q168.8101,77.4077 169.4949,78.4744 Q170.1797,79.541 171.5244,79.541 Q172.1553,79.541 172.7488,79.2712 Q173.3423,79.0015 173.9731,78.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="185.5" y="79.5352">BaseClass</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="157.5" x2="244.5" y1="91" y2="91"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="157.5" x2="244.5" y1="99" y2="99"/><!--MD5=[38d283ab138c7dee77115f9fbc859330]
+reverse link BaseClass to net.dummy.Person--><path d="M159.52,120.34 C142.01,135.68 122.12,153.1 106.62,166.68 " fill="none" id="BaseClass&lt;-net.dummy.Person" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="155.09,114.91,174.74,107,164.31,125.44,155.09,114.91" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[3aad075c01a5f1f4921d0fd2481fc4e0]
+reverse link net.dummy.Meeting to net.dummy.Person--><path d="M78.03,120.34 C78.46,135.68 78.96,153.1 79.34,166.68 " fill="none" id="net.dummy.Meeting&lt;-net.dummy.Person" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="77.65,107,73.8163,113.1076,77.9795,118.9955,81.8133,112.8879,77.65,107" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5b94dd299fdb64f5042d8ccdd246a8aa]
+reverse link BaseClass to net.dummy.Meeting--><path d="M136.06,83 C129.29,83 122.52,83 115.75,83 " fill="none" id="BaseClass&lt;-net.dummy.Meeting" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="136.38,76,156.38,83,136.38,90,136.38,76" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b57b6e1cdce0b532ba1371e9c7d07ce1]
+reverse link net.dummy.Person to net.foo.Person--><path d="M136.28,191 C148.33,191 160.37,191 172.42,191 " fill="none" id="net.dummy.Person&lt;-net.foo.Person" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="136,198,116,191,136,184,136,198" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[3949315fc233572465e48cd9e3f6e864]
+reverse link BaseClass to net.foo.Person--><path d="M203.84,127.02 C204.74,140.58 205.69,155.04 206.46,166.68 " fill="none" id="BaseClass&lt;-net.foo.Person" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="196.85,127.42,202.52,107,210.82,126.5,196.85,127.42" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[736f19012fcb2f75c0b04526aeb93c2d]
+reverse link net.dummy.Meeting to net.foo.Person--><path d="M120.23,114.9 C124.24,117.93 128.22,120.99 132,124 C149.23,137.71 167.91,153.91 182.44,166.83 " fill="none" id="net.dummy.Meeting&lt;-net.foo.Person" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="109.63,107.02,112.0569,113.8105,119.2584,114.182,116.8315,107.3915,109.63,107.02" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[20bb99b6116bfc237a0342da45d84df8]
+reverse link BaseClass to net.unused.Person--><path d="M252.82,118.61 C255.26,120.41 257.67,122.21 260,124 C277.59,137.53 296.44,153.88 310.96,166.92 " fill="none" id="BaseClass&lt;-net.unused.Person" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="248.71,124.28,236.43,107.01,256.8,112.85,248.71,124.28" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e8aa877da2ad9d94889723a48441e541]
+@startuml
+' Split into 4 pages
+page 2x2
+skinparam pageMargin 10
+skinparam pageExternalColor gray
+skinparam pageBorderColor black
+
+class BaseClass
+
+namespace net.dummy #DDDDDD {
+    .BaseClass <|- - Person
+    Meeting o- - Person
+    
+    .BaseClass <|- Meeting
+
+}
+
+namespace net.foo {
+  net.dummy.Person  <|- Person
+  .BaseClass <|- - Person
+
+  net.dummy.Meeting o- - Person
+}
+
+BaseClass <|- - net.unused.Person
+@enduml
+
+@startuml
+page 2x2
+skinparam pageMargin 10
+skinparam pageExternalColor gray
+skinparam pageBorderColor black
+
+class BaseClass
+
+namespace net.dummy #DDDDDD {
+    .BaseClass <|- - Person
+    Meeting o- - Person
+    
+    .BaseClass <|- Meeting
+
+}
+
+namespace net.foo {
+  net.dummy.Person  <|- Person
+  .BaseClass <|- - Person
+
+  net.dummy.Meeting o- - Person
+}
+
+BaseClass <|- - net.unused.Person
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 14.0.1+7
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>
