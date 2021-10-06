@@ -1,0 +1,15 @@
+@startuml
+
+class markdown-it-alerts {
+    + success
+    + info
+}
+
+class VNote {
+    + alert-success
+    + alert-info
+}
+
+"markdown-it-alerts" -> VNote: markdown语法差异
+
+@enduml

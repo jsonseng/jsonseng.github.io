@@ -1,0 +1,17 @@
+@startuml
+
+start
+
+:App开始进入前台;
+:开始创建一份日志日志;
+
+while (是否有要求写入新的日志，并且距离上次fflush时间是否满足5秒？)
+    :记录当下时间点，并调用fflush将日志从缓存区刷入硬盘;
+endwhile
+
+:退到后台;
+:强制fflush缓存区的内容到硬盘;
+
+end
+
+@enduml
