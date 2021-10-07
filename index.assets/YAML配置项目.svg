@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="321px" preserveAspectRatio="none" style="width:620px;height:321px;" version="1.1" viewBox="0 0 620 321" width="620px" zoomAndPan="magnify"><defs><filter height="300%" id="fsavio4rb4spg" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="58" x="10" y="147.0986"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="20" y="170.6338">YAML</text><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="102" x="118" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="128" y="43.5352">title（标题）</text><path d="M68,165.3428 L78,165.3428 C93,165.3428 93,38.2441 108,38.2441 L118,38.2441 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="151" x="118" y="76.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="131" x="128" y="100.0234">draft（是否是草稿）</text><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="286" x="319" y="48.2441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="266" x="329" y="71.7793">true（当发布时，不会作为正式文章发布）</text><path d="M269,94.7324 L279,94.7324 C294,94.7324 294,66.4883 309,66.4883 L319,66.4883 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="290" x="319" y="104.7324"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="270" x="329" y="128.2676">false（当发布时，会作为正式的文章发布）</text><path d="M269,94.7324 L279,94.7324 C294,94.7324 294,122.9766 309,122.9766 L319,122.9766 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M68,165.3428 L78,165.3428 C93,165.3428 93,94.7324 108,94.7324 L118,94.7324 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="105" x="118" y="161.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="128" y="184.7559">tags（标签）</text><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="155" x="273" y="161.2207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="135" x="283" y="184.7559">数组，比如 ["Hugo",]</text><path d="M223,179.4648 L233,179.4648 C248,179.4648 248,179.4648 263,179.4648 L273,179.4648 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M68,165.3428 L78,165.3428 C93,165.3428 93,179.4648 108,179.4648 L118,179.4648 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="209" x="118" y="217.709"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="189" x="128" y="241.2441">summary（文章的概括信息）</text><path d="M68,165.3428 L78,165.3428 C93,165.3428 93,235.9531 108,235.9531 L118,235.9531 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fsavio4rb4spg)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="453" x="118" y="274.1973"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="433" x="128" y="297.7324">summaryImage（文章的Logo图，如果没有设置，则使用默认的图）</text><path d="M68,165.3428 L78,165.3428 C93,165.3428 93,292.4414 108,292.4414 L118,292.4414 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startmindmap
+
+* YAML
+** title（标题）
+** draft（是否是草稿）
+*** true（当发布时，不会作为正式文章发布）
+*** false（当发布时，会作为正式的文章发布）
+** tags（标签）
+*** 数组，比如 ["Hugo",]
+** summary（文章的概括信息）
+** summaryImage（文章的Logo图，如果没有设置，则使用默认的图）
+
+@endmindmap
+
+PlantUML version 1.2019.09(Tue Aug 27 00:19:51 CST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_144-b01
+Operating System: Mac OS X
+OS Version: 10.15.1
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

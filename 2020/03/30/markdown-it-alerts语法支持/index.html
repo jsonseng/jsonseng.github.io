@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jsonseng.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1 前言2 环境的准备3 环境的配置3.1 加载Alerts所需的CSS样式3.2 优化markdown-it-alerts插件4 效果 1 前言 在我们使用VNote[1]写博客的时候，里面有一个功能叫警告，具体的效果可以查看这里 Bootstrap Alerts。 2 环境的准备 由于hexo本身并不自带markdown-it渲染器，所以需要将需要进行替换。  可以点击查看这里的替换教程，插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown-it-alerts语法支持">
+<meta property="og:url" content="https://jsonseng.github.io/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:description" content="1 前言2 环境的准备3 环境的配置3.1 加载Alerts所需的CSS样式3.2 优化markdown-it-alerts插件4 效果 1 前言 在我们使用VNote[1]写博客的时候，里面有一个功能叫警告，具体的效果可以查看这里 Bootstrap Alerts。 2 环境的准备 由于hexo本身并不自带markdown-it渲染器，所以需要将需要进行替换。  可以点击查看这里的替换教程，插件">
+<meta property="og:locale">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/023bbf7833cd7fc4d7812faffbab91bcf286ada97b037ff093f54dc86113697e.svg">
+<meta property="article:published_time" content="2020-03-29T16:11:37.000Z">
+<meta property="article:modified_time" content="2020-03-29T16:11:37.000Z">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="markdown-it">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="VNote">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsonseng.github.io/assert/puml/023bbf7833cd7fc4d7812faffbab91bcf286ada97b037ff093f54dc86113697e.svg">
+
+<link rel="canonical" href="https://jsonseng.github.io/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>markdown-it-alerts语法支持 | Vince.Zheng</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vince.Zheng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">这个开发有点懒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          markdown-it-alerts语法支持
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-30 00:11:37" itemprop="dateCreated datePublished" datetime="2020-03-30T00:11:37+08:00">2020-03-30</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a></li><li><a href="#2-%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%86%E5%A4%87">2 环境的准备</a></li><li><a href="#3-%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE">3 环境的配置</a><ul><li><a href="#3.1-%E5%8A%A0%E8%BD%BDalerts%E6%89%80%E9%9C%80%E7%9A%84css%E6%A0%B7%E5%BC%8F">3.1 加载Alerts所需的CSS样式</a></li><li><a href="#3.2-%E4%BC%98%E5%8C%96markdown-it-alerts%E6%8F%92%E4%BB%B6">3.2 优化markdown-it-alerts插件</a></li></ul></li><li><a href="#4-%E6%95%88%E6%9E%9C">4 效果</a></li></ul></div></p>
+<h1><span id="1-前言">1 前言</span></h1>
+<p>在我们使用VNote<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>写博客的时候，里面有一个功能叫<code>警告</code>，具体的效果可以查看这里 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/markdown-it-alerts">Bootstrap Alerts。</a></p>
+<h1><span id="2-环境的准备">2 环境的准备</span></h1>
+<p>由于hexo本身并不自带markdown-it渲染器，所以需要将需要进行替换。</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-markdown-it">可以点击查看这里的替换教程</a>，插件的官网方面：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-markdown-it">点击查看官网的github</a></li>
+<li>markdown-it渲染器本身是不支持alerts语法，所以此时需要<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/markdown-it-alerts">安装markdown-it-alerts插件</a>。</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>具体安装，可以查看以下的安装命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hexo根目录</span><br><span class="line">npm i markdown-it-alerts --save</span><br></pre></td></tr></table></figure>
+<p>更新hexo的<code>_config.yml</code>文件，如下的配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown-it config</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&#x27;“”‘’&#x27;</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">plugin:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">markdown-it-alerts</span></span><br><span class="line">      <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">&#x27;header-anchor&#x27;</span></span><br><span class="line">    <span class="attr">permalinkSide:</span> <span class="string">&#x27;left&#x27;</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&#x27;¶&#x27;</span></span><br><span class="line">    <span class="attr">case:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">separator:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+</div>
+<ol start="3">
+<li>由于markdown-it-alerts的插件只是寻找到对应markdown语法进行替换，css样式部分它并不负责，所以需要到网站官网去下载样式，<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.4/getting-started/download/">点击下载Bootstrap样式</a>。也可以将样式里面大部分删除，只剩下 alert 相关的CSS样式。</li>
+</ol>
+<h1><span id="3-环境的配置">3 环境的配置</span></h1>
+<p>这里我会划分成两步：</p>
+<ol>
+<li>加载Alerts所需的CSS样式</li>
+<li>优化markdown-it-alerts插件</li>
+</ol>
+<h2><span id="31-加载alerts所需的css样式">3.1 加载Alerts所需的CSS样式</span></h2>
+<p>对于加载额外的样式，可以使用<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/helpers#css">hexo提供的辅助函数（Helpers）</a>。</p>
+<ol>
+<li>将样式存放，即将样式放到<code>hexo根目录/source/css/bootstrap.css</code></li>
+<li>让主题加载这个新添加的样式，寻找到网页head总定义位置，一般在（<code>hexo根目录/themes/你用的主题/layout/_partial/head.ejs</code>），如果还是没有找到，可以看看是否在<code>hexo根目录/themes/你用的主题/layout/layout.ejs</code>。在head.ejs里面添加以下的一句代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- css(&#x27;/css/bootstrap.css&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>此时就会有alerts的样式，开始下一步</p>
+<h2><span id="32-优化markdown-it-alerts插件">3.2 优化markdown-it-alerts插件</span></h2>
+<p>markdown-it-alerts与VNote<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>在Alerts方面还是有所区别，这里就会导致一些尴尬，在VNote<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup>写完，不能在hexo里面直接用。查看以下图表</p>
+<img src="/assert/puml/023bbf7833cd7fc4d7812faffbab91bcf286ada97b037ff093f54dc86113697e.svg">
+<p>此时需要进入到 markdown-it-alerts 插件进行语法分析修改，保证与VNote一致的语法分析。进入<code>博客根目录/node_modules/markdown-it-alerts/index.js</code>，打开进行修改成以下的内容:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> container = <span class="built_in">require</span>(<span class="string">&#x27;markdown-it-container&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">alerts_plugin</span>(<span class="params">md, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> containerOpenCount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> links = options ? options.links : <span class="literal">true</span>;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setupContainer</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        md.use(container, name, &#123;</span><br><span class="line">            <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params">tokens, idx</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (tokens[idx].nesting === <span class="number">1</span>) &#123;</span><br><span class="line">                    containerOpenCount += <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&#x27;&lt;div class=&quot;alert &#x27;</span> + name + <span class="string">&#x27;&quot; role=&quot;alert&quot;&gt;\n&#x27;</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    containerOpenCount -= <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&#x27;&lt;/div&gt;\n&#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isContainerOpen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> containerOpenCount &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">selfRender</span>(<span class="params">tokens, idx, options, env, self</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.renderToken(tokens, idx, options);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setupLinks</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> defaultRender = md.renderer.rules.link_open || selfRender;</span><br><span class="line">        </span><br><span class="line">        md.renderer.rules.link_open = <span class="function"><span class="keyword">function</span> (<span class="params">tokens, idx, options, env, self</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (isContainerOpen()) &#123;</span><br><span class="line">                tokens[idx].attrPush([<span class="string">&#x27;class&#x27;</span>, <span class="string">&#x27;alert-link&#x27;</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> defaultRender(tokens, idx, options, env, self);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-primary&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-secondary&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-success&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-info&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-warning&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-danger&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-light&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-dark&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (links) &#123;</span><br><span class="line">            setupLinks();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>从此VNote与hexo的alerts语法分析就一致了，可以相互使用，开始快乐的写博客吧！！！</p>
+<h1><span id="4-效果">4 效果</span></h1>
+<div class="alert alert-success" role="alert">
+<p>A simple success alert—check it out!</p>
+</div>
+<div class="alert alert-danger" role="alert">
+<p>A simple danger alert—check it out!</p>
+</div>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>VNote是一个更懂程序员和Markdown的笔记软件，可以查看<a target="_blank" rel="noopener" href="https://tamlok.github.io/vnote/zh_cn/">官网了解更多。</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/markdown-it/" rel="tag"># markdown-it</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/VNote/" rel="tag"># VNote</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/" rel="prev" title="时间管理工具Toggl">
+      <i class="fa fa-chevron-left"></i> 时间管理工具Toggl
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/" rel="next" title="UML（一）初探">
+      UML（一）初探 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 环境的准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 环境的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">3.1 加载Alerts所需的CSS样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">3.2 优化markdown-it-alerts插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 效果</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vince.Zheng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vince.Zheng</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'WyuLW4aF9UlWwhMG7LwEij0G-gzGzoHsz',
+      appKey     : 'GQxmxOlPHcfjhgh3NVcIlUBR',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

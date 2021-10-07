@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jsonseng.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Vince.Zheng">
+<meta property="og:url" content="https://jsonseng.github.io/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:locale">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="iOS, C++, SDK">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jsonseng.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>Vince.Zheng</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vince.Zheng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">这个开发有点懒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">日志规范</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-26 00:00:08" itemprop="dateCreated datePublished" datetime="2020-06-26T00:00:08+08:00">2020-06-26</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/26/%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><div class="table-of-contents"><ul><li><a href="#1-%E8%83%8C%E6%99%AF">1 背景</a></li><li><a href="#2-%E6%97%A5%E5%BF%97%E8%A7%84%E8%8C%83">2 日志规范</a><ul><li><a href="#2.1-%E5%88%86%E6%9E%90%E9%9C%80%E6%B1%82">2.1 分析需求</a></li><li><a href="#2.2-%E4%B8%80%E4%B8%AA%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6-%E5%BC%80%E5%A7%8B%E4%B8%8E%E7%BB%93%E6%9D%9F">2.2 一个日志文件 开始与结束</a></li><li><a href="#2.3-%E5%BA%94%E8%AF%A5%E5%86%99%E5%85%A5%E4%BB%80%E4%B9%88">2.3 应该写入什么</a></li></ul></li><li><a href="#3-%E5%BF%AB%E6%8D%B7%E5%B7%A5%E5%85%B7">3 快捷工具</a><ul><li><a href="#3.1-%E4%BD%BF%E7%94%A8tag%E5%88%92%E5%88%86%E6%97%A5%E5%BF%97">3.1 使用tag划分日志</a></li></ul></li></ul></div></p>
+<h1><span id="1-背景">1 背景</span></h1>
+<p>我们大家都知道写日志是很重要的，但是要怎么写日志合适，什么节点该打日志，其实并没有人告诉我们。靠的是每一个各自的领悟能力，这里我们需要去完善这部分，让日志能传承，积累，发展下去。让我们（开发，测试，技术支持）一起知道一套规范，Follow一套规范。低成本，高效一起协助定位问题，提高软件的质量。</p>
+<p>基于此，我们会疑惑，每次上报的问题，技术支持/测试 只有一个透传数据的任务，第一层接触的开发就需要去过滤，复现问题，确定问题应该找哪个部门来解决。借此引发，我们是否应该在日志的纬度能够去规避这个问题，让更多参与的人能直接看出问题是在哪里的？</p>
+<h1><span id="2-日志规范">2 日志规范</span></h1>
+<p>我们的日志里面有什么？<br>
+经过沟通，期望能统一 Android、iOS上日志的规范，让大家（开发、测试、技术支持）形成一个统一的规范，减少沟通和维护的成本</p>
+<h2><span id="21-分析需求">2.1 分析需求</span></h2>
+<p>期望日志能记录什么，能给我们带来什么样的内容？</p>
+<ol>
+<li>tag：可以用于标记系列的日志Id【可用于筛选出一个功能其流程是怎样产生的】</li>
+<li>Function: 函数名，具体日志是在哪里产生的</li>
+<li>line: 具体日志是在文件的哪一行产生的</li>
+<li>当时软件、硬件环境是怎样的。到底遇到了什么问题？</li>
+<li>问题是怎么产生的，应该找谁去解决问题</li>
+</ol>
+<h2><span id="22-一个日志文件-开始与结束">2.2 一个日志文件 开始与结束</span></h2>
+<p>目前的策略，采取的是一次APP进入到前台的时候，则会划分一个日志文件。可以简化日志的大小，也可以直接看到一次处于前台APP发生了什么事情。所有的日志将采取一个文件，这么做的一个好处，可以看到在时间维度上都发生了什么事情。而如果想要知道某一个功能具体的情况，可以通过 2.1 里所指的tag来划分出要的日志信息</p>
+<img src="/assert/puml/a4656c97b950c0b8cdf707b665da5d13ce90bfca6ce0c416f9ff3b428ed5383b.svg">
+<h2><span id="23-应该写入什么">2.3 应该写入什么</span></h2>
+<p>日志这部分是一个case by case的场景，无法一开始就能决定所有的日志要怎么打印才是对。那我们反思，什么信息是有用的：</p>
+<ol>
+<li>环境信息</li>
+<li>过程和出错日志，该找谁解决</li>
+</ol>
+<h3><span id="231-环境信息">2.3.1 环境信息</span></h3>
+<p>我们的研发过程，对于复现，或者发现是哪一个版本的固件才存在的问题，我们需要知道相关固件各个版本，软件版本，设备信息。此时可以使用日志将内容打印</p>
+<h3><span id="232-过程和出错日志该找谁解决">2.3.2 过程和出错日志，该找谁解决</span></h3>
+<p>往往我们出现问题是某一个具体的功能，此时可以通过<code>tag</code>来完成筛选一个功能的日志信息。那日志又应该怎么打印？</p>
+<p>我们从（What，When，How）来思考问题：</p>
+<ol>
+<li>What：我们应该打印什么？此处我的经验告诉有几个地方可以打印：
+<ol>
+<li>功能流程触发，可以知道这个功能开始了</li>
+<li>功能出错，可以知道当时出错的原因<br>
+出错这里会划分多个维度的：
+<ol>
+<li>因为V1协议返回的异常【此时可以带上告知看日志的人，需要找哪个模块的固件定位】</li>
+<li>因为状态校验不通过【此时可以带上告知看日志的人，需要找此功能的SDK研发定位】</li>
+<li>因为当下的条件不满足引起无法触发功能【此时可能是上层调用的顺序问题，可以提出建议需要调用什么接口之后再使用此接口的建议】</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>When：我们的日志要遵循一个规则，不能疯狂打印，这样会有打印的效率，建议只打印以下条件的
+<ol>
+<li>如果这个动作是一次性，只有用户驱动才会触发，可以打印</li>
+<li>在满足条件1的情况下，出现判断错误的时候，需要打印</li>
+</ol>
+</li>
+<li>How：对于流程过程，可以采取 info 等级的日志。对于出现异常，但是不影响流程的日志，使用warning。对于出现异常，但影响流程功能的采取error</li>
+</ol>
+<p>以上我们打印出了一个功能的过程，与出错原因了。那还需要一个日志，那就是具体这个日志可以找谁解决问题。</p>
+<p>这里我们将要求开发在打印出错定位的日志时，带上具体可能是谁引起的错误，（开发、测试、技术支持）应该找谁来解决这个问题。</p>
+<h3><span id="233-日志等级的划分与作用">2.3.3 日志等级的划分与作用</span></h3>
+<p>日志等级控制，在不同的配置环境下，打印不同等级的日志<br>
+对于日志部分，我们可以划分以下几个等级：</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>作用</th>
+<th>Release环境</th>
+<th>Debug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fatal</td>
+<td>非常严重的问题，需要使用此等级来打印</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>error</td>
+<td>出现异常错误的等级</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>warning</td>
+<td>警告，虽然可以继续执行，但是建议消除</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>info</td>
+<td>打印相关信息</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>调试使用的等级</td>
+<td>禁止</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td>调试使用的等级</td>
+<td>禁止</td>
+<td>可以</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="234-一行日志的例子">2.3.4 一行日志的例子</span></h3>
+<p>上面讲了这么多，那一行日志应该是怎样？这里举个例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20:19:30.0300 function:line [E][Camera_Shoot][Custom Information][Please find the SDK developer]</span><br></pre></td></tr></table></figure>
+<p>一行的日志有以下的信息：</p>
+<ol>
+<li>时间戳【例子中的 <font color="red">20:19:30.0300</font>】：只需要 时，分，秒，毫秒的单位。哪年哪月那日由日志文件已经带上了，这里无需，可以简化日志量</li>
+<li>具体的函数和行【例子中的 <font color="red">function:line</font>】：给开发可以知道是在哪一行打印这个日志的。行数有时可以用于确定与出问题当时的代码是否一致</li>
+<li>日志等级【例子中的 <font color="red">[E]</font>】：这个日志是用来说明什么的，这块靠的更多是开发的sense。如果你明确要定位哪一个问题，可以通过第4点的tag，加上这个等级，可以直接筛选出一个功能所有的错误信息。比如例子可以筛选出 <code>[E][Camera_Shoot]</code></li>
+<li>功能的Tag【例子中的 <font color="red">[Camera_Shoot]</font>】：可用于搜索一个功能的整个流程是怎么跑的</li>
+<li>自定义内容【例子中的 <font color="red">[Custom Information]</font>】：这块全由开发决定，主要是用于定位问题在哪里</li>
+<li>建议问题可能要找谁解决【例子中的 <font color="red">[Please find the SDK developer]</font>】：因为我们的日志是考虑 技术支持/测试 也可以参与进来指派问题给谁</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>可能有人会疑惑，那怎么保证第四点的tag一致？<br>
+这里就引发使用跨平台的方式来完成tag的定义，上层来传递枚举值，内部决定枚举对应的字符串内容是什么。这样能保证在不同平台一样的功能tag是一致的。</p>
+</div>
+<div class="alert alert-warning" role="alert">
+<p>这里建议在写入日志方面采取：</p>
+<ol>
+<li>尽量简洁，尽量能表达意思即可</li>
+<li>避免内部自动持续疯狂打印同一个日志。非用户驱动的</li>
+</ol>
+</div>
+<h1><span id="3-快捷工具">3 快捷工具</span></h1>
+<h2><span id="31-使用tag划分日志">3.1 使用tag划分日志</span></h2>
+<p>请按照一下的步骤完成筛选你要的日志部分：</p>
+<ol>
+<li>安装 Visual Studio Code</li>
+<li>安装 Visual Studio Code插件Filter Line</li>
+<li>打开你想要从中筛选出来的完整日志文件（即夹杂各种信息）</li>
+<li>使用快捷键 Command + Shift + P，搜索<br>
+<img src="/v_images/20200622211539451_2096857063.png" alt></li>
+<li>输入你想要筛选日志行里面的目标关键词</li>
+<li>即可得到你要的功能整个过程的日志信息</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/" class="post-title-link" itemprop="url">UML（一）初探</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-06 00:35:54" itemprop="dateCreated datePublished" datetime="2020-04-06T00:35:54+08:00">2020-04-06</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/06/UML%EF%BC%88%E4%B8%80%EF%BC%89%E5%88%9D%E6%8E%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a><ul><li><a href="#1.1-%E5%AE%83%E8%83%BD%E4%B8%BA%E6%88%91%E5%B8%A6%E6%9D%A5%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84">1.1 它能为我带来什么好处</a></li></ul></li><li><a href="#2-%E7%9B%AE%E5%89%8D%E6%88%91%E5%AF%B9uml%E7%9A%84%E7%90%86%E8%A7%A3">2 目前我对UML的理解</a></li><li><a href="#3-%E6%88%91%E5%B8%B8%E7%94%A8%E7%9A%84uml%E7%B1%BB%E5%9E%8B">3 我常用的UML类型</a><ul><li><a href="#3.1-%E6%97%B6%E5%BA%8F%E5%9B%BE">3.1 时序图</a></li><li><a href="#3.2-%E7%B1%BB%E5%9B%BE">3.2 类图</a></li><li><a href="#3.3-%E6%B4%BB%E5%8A%A8%E5%9B%BE">3.3 活动图</a></li><li><a href="#3.4-%E7%BB%84%E4%BB%B6%E5%9B%BE">3.4 组件图</a></li><li><a href="#3.5-%E7%8A%B6%E6%80%81%E5%9B%BE">3.5 状态图</a></li><li><a href="#3.6-%E5%AF%B9%E8%B1%A1%E5%9B%BE">3.6 对象图</a></li><li><a href="#3.7-%E9%83%A8%E7%BD%B2%E5%9B%BE">3.7 部署图</a></li></ul></li><li><a href="#4-%E6%80%BB%E7%BB%93">4 总结</a></li></ul></div></p>
+<h1><span id="1-前言">1 前言</span></h1>
+<p>UML<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>是一种开放的方法，用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品的开放方法。<br>
+UML是一门通用的语言，在对于人与人之间的交流上，能提供跨编程语言的作用。在设计阶段，功能落地阶段，测试阶段，维护阶段，能起到提高效率的作用。</p>
+<p>使用UML能为我解决什么问题？这里我罗列一下我遇到的场景：</p>
+<ol>
+<li>在一个较大的功能（可能要1个月才能完成）来到的时候，在没有使用UML的时候，我可能会开发过程中，会发现我可能一开始做设计的时候没有考虑的点。或者我曾经想到过的点，到我真正编程的时候，就忘记了这个小点。在此过程，我需要不断反复修复不同地方的小点。</li>
+<li>当我开发这个功能的时候，可能我是要跟不同的同事合作（比如合作的同事是做 与我不同平台的 开发语言），此时我需要面对面通过一些画图来讲解我的功能设计。因为大家的开发语言不一致，对方要看我的源码是不太现实的</li>
+<li>当测试需要介入时，他们需要了解我们的内部逻辑，才能做好白盒测试<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>的测试用例设计。此时也不能直接让对方看代码，只能靠口口相传</li>
+<li>可能过了很久很久以后，有同事帮忙去定位模块的功能 Bugs，或者迭代优化。对于那位接手的同事，只能面对一片没有注释的源码，估计他只能在地下画圈圈了</li>
+</ol>
+<p>应对上面4个场景，使用了UML之后，会怎样：</p>
+<ol>
+<li>可以通过UML的元模型建立<code>功能模型，对象模型，动态模型</code>，反思自己在设计这个代码的时候，是否具备<code>完备性</code>。人的记忆是有限的，当设计完一个子模块，跳到另一个子模块设计的时候，可能就对上一个模块的记忆会出现模糊。而拥有已经写好的UML，可以让人快速建立对上一个子模块的记忆（UML每一个记录的细节点，都可以成为那位开发的记忆触发点）。当真正进行开发的时候，开发可以按照UML来进行相关的开发，尽可能保证所有的细节都被保留。</li>
+<li>当进行<code>技术评审</code>时，可以拿出UML，进行整个流程的讲解。让对方知道自己是怎么跑流程/功能。由于UML是统一性语言，对方能很快get到设计者的思路想法。Reviewer可以根据自己的经验给出一些建议，能让大家的沟通成本，思想的传递做得更好（PS：相对文字和图形，人脑对图形的接受能力显然更强）</li>
+<li>跟第二点一样，对于测试同事，也可以很快传达自己的思路</li>
+<li>从维护角度，通过UML和必要的文字描述，可以辅助接手的同事快速知道代码不同地方的作用。如果有了相关的UML，在代码的类头部也可以加入注释，把文档的link带上。</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>这里引用一段有意思的话:</p>
+<p>来自《Thinking in UML》<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>:<br>
+从微观角度说，这些独立的对象有着一系列奇妙而古怪的特性。例如，对象有着坚硬的外壳，从外部看来，除了它用来与外界交互的消息通道之外，对象内部就是一个黑匣子，什么也看不到，这称为<code>封装</code>；再例如对象可以结合在一起形成新的对象，结合后的对象具有前两者特性的总和，这称为<code>聚合</code>；对象可以繁育，产下的孩子将拥有父辈全部的本领，这称为<code>继承</code>；每个对象都有多个外貌，在不同情况下可以展现不同的外貌，但本质只有一个，这就是<code>接口</code>；而多个对象却可能长着相同的脸，但同样的这张脸背后却是不同的对象，它们有着不同的行为，这就是<code>多态</code>。</p>
+<p>从宏观角度说，对象是“短视”的，它不知道也无法理解它所处的宏观环境，也不知道它的行为会对整个宏观环境造成怎样的影响。它只知道与它有着联系的身边的一小群伙伴，这称为<code>依赖</code>，并与小伙伴间保持着信息交流的关系，这称为<code>耦合</code>。同时对象也是“自私”的，即便在伙伴之间，每个对象也仍然顽固地保护着自己的领地，这称为<code>类属性</code>，只允许其他人通过它打开的小小窗口，这称为方法，进行交流，从不允许对方进入它的领地。</p>
+<p>然而对象也喜欢群居，并且总是“物以类聚，人以群分”。这些群居的对象有着一些相似的性质，它们依靠这些相似的性质来组成一个部落。对象们寻找相似性质并组成部落的过程称为抽象，它们组成的部落称为<code>类</code>；部落里的每个成员既有共同的性质又有自己的个性，我们只有把特有的个性赋给部落成员才能区分它们并使它们活动起来，这称为<code>实例化</code>。</p>
+</div>
+<h2><span id="11-它能为我带来什么好处">1.1 它能为我带来什么好处</span></h2>
+<p>从我目前几个月的使用情况来讲：</p>
+<ol>
+<li>前期设计上：对我在做功能设计的时候，可以<code>低成本</code>画出功能上是怎么运作，每一步是怎么做的，是否有遗漏没有考虑到的地方</li>
+<li>合作上：可以使用它跟合作的开发介绍这个功能是怎样，让对端理解我的设计，提出意见</li>
+<li>测试上：可以让测试知道其内部的运作模式是怎样的（可用于技术评审上讲解功能展示，这里注意要补充一些必要的文字，如果单纯丢文档，可能信息不足，对于测试同事会懵逼），能做出相关的白盒测试用例。</li>
+<li>维护上：人员的流动，业务的交接，这是无法避免。对于接手业务的同事来讲，必要的文档，能让他们更快去理解原来功能的设计</li>
+<li>跨部门支援：当别的部门想直接使用本部门已经完备的功能，这是可以通过这部分的文档，快速让对方知道要怎么接入</li>
+</ol>
+<h1><span id="2-目前我对uml的理解">2 目前我对UML的理解</span></h1>
+<p>在了解有什么UML之前，可以先思考一下，在哪里用到UML，怎么使用UML。这里有一个概念要介绍一下。</p>
+<ol>
+<li>建模：指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达</li>
+</ol>
+<p>以我目前使用到的场景，有以下三个场景：</p>
+<ol>
+<li>了解需求后，根据经验与了解到的事情，把关键的要素罗列出来，通过<code>活动图</code>描述整体走下来的过程。让参与者达成一致，避免大家理解的差异</li>
+<li>对具体的一个功能，其内部逻辑的交互过程通过时序图描述出来。有什么作用，请看下面两点
+<ol>
+<li>自我回述查看是否哪里的一个拐点我理解不足，是否我需要去了解更多</li>
+<li>可以跟他人沟通，让双方达成一致的观点，或者对方可以补充我思考不足的地方</li>
+</ol>
+</li>
+<li>跨部门合作的适合，明确双方的一个交互<code>活动图</code>，明确双方的职责在什么地方。与第一点相似，但是这里偏向双方的技术栈是不同，可以通过统一语言，让双方明白交互物，输入/输出是什么。</li>
+</ol>
+<h1><span id="3-我常用的uml类型">3 我常用的UML类型</span></h1>
+<p>我比较常用的UML有以下几种：</p>
+<ol>
+<li>时序图</li>
+<li>类图</li>
+<li>活动图</li>
+<li>组件图</li>
+<li>状态图</li>
+</ol>
+<p>不常用的UML图有以下：</p>
+<ol>
+<li>对象图</li>
+<li>部署图</li>
+</ol>
+<p>以下将展示一下上面讲到的图的例子</p>
+<h2><span id="31-时序图">3.1 时序图</span></h2>
+<p>时序图<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>：通过描述对象之间发送消息的时间顺序显示多个对象之间的动态协作。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/1d53824bd7fa0b3d17aac8c76458f982f27073724b65122619003355855bc71e.svg">
+<h2><span id="32-类图">3.2 类图</span></h2>
+<p>类图<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：显示了模型的静态结构，特别是模型中存在的类、类的内部结构以及它们与其他类的关系等。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/3d3120e5c1f43381bc3efe58082317bd27b0892836c1a950ac324f8420e520ce.svg">
+<h2><span id="33-活动图">3.3 活动图</span></h2>
+<p>活动图<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>: 阐明了业务用例实现的工作流程。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/08b484a69b9bd9c2d143c7c9472772e6373b427cdb5491237065eb6ed91d4003.svg">
+<h2><span id="34-组件图">3.4 组件图</span></h2>
+<p>组件图<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>：表示组件是如何互相组织以构建更大的组件或是软件系统的。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/28e2cf784388347a6f101adffb14424b46162a5e534b6b9d35d631c5e35ec5ba.svg">
+<h2><span id="35-状态图">3.5 状态图</span></h2>
+<p>状态图<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>：描述一个实体基于事件反应的动态行为，显示了该实体如何根据当前所处的状态对不同的事件做出反应。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/f607ff2372d8a52f8f947da67d53e137c2f23ba9f56317e0f91c8ba3de93542a.svg">
+<h2><span id="36-对象图">3.6 对象图</span></h2>
+<p>对象图<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>: 显示了一组对象(类的实例)和他们之间的关系。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/10eafddcdfcc4d2ac6ed64c4f8ee91bad3dbb020d34141cc693eecbcd12651b7.svg">
+<h2><span id="37-部署图">3.7 部署图</span></h2>
+<p>部署图<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>：用来显示系统中软件和硬件的物理架构。</p>
+<p>以下是一个例子</p>
+<img src="/assert/puml/b10144d58051b215c04512345e317b1cd3b47567739f3f06572df9cfd5a9b854.svg">
+<h1><span id="4-总结">4 总结</span></h1>
+<p>以上是我为什么会投入去了解和使用UML的原因，基本的例子给大家看看各种图的样式。后面会讲解我针对不同的UML的日常使用理解与结合PlantUML<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>是如何使用的介绍。工具能让我在一些不必要的消耗上减少，focus更多的精力在工具无法解决的领域</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80">维基百科对UML的解释</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95">白盒测试：百度百科</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Thinking in UML，作者：谭云杰，可以在微信读书上找到 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%B6%E5%BA%8F%E5%9B%BE">时序图百度百科</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B1%BB%E5%9B%BE">类图百度百科</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8A%A8%E6%80%81%E5%9B%BE/741412?fromtitle=%E6%B4%BB%E5%8A%A8%E5%9B%BE&amp;fromid=9454978">活动图 百度百科</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BB%84%E4%BB%B6%E5%9B%BE">组件图 维基百科</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%8A%B6%E6%80%81%E5%9B%BE">状态图 百度百科</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E8%B1%A1%E5%9B%BE">对象图 百度百科</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%83%A8%E7%BD%B2%E5%9B%BE">部署图 百度百科</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://plantuml.com/zh/">PlantUML官网</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/" class="post-title-link" itemprop="url">markdown-it-alerts语法支持</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-30 00:11:37" itemprop="dateCreated datePublished" datetime="2020-03-30T00:11:37+08:00">2020-03-30</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a></li><li><a href="#2-%E7%8E%AF%E5%A2%83%E7%9A%84%E5%87%86%E5%A4%87">2 环境的准备</a></li><li><a href="#3-%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE">3 环境的配置</a><ul><li><a href="#3.1-%E5%8A%A0%E8%BD%BDalerts%E6%89%80%E9%9C%80%E7%9A%84css%E6%A0%B7%E5%BC%8F">3.1 加载Alerts所需的CSS样式</a></li><li><a href="#3.2-%E4%BC%98%E5%8C%96markdown-it-alerts%E6%8F%92%E4%BB%B6">3.2 优化markdown-it-alerts插件</a></li></ul></li><li><a href="#4-%E6%95%88%E6%9E%9C">4 效果</a></li></ul></div></p>
+<h1><span id="1-前言">1 前言</span></h1>
+<p>在我们使用VNote<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>写博客的时候，里面有一个功能叫<code>警告</code>，具体的效果可以查看这里 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/markdown-it-alerts">Bootstrap Alerts。</a></p>
+<h1><span id="2-环境的准备">2 环境的准备</span></h1>
+<p>由于hexo本身并不自带markdown-it渲染器，所以需要将需要进行替换。</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-markdown-it">可以点击查看这里的替换教程</a>，插件的官网方面：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-markdown-it">点击查看官网的github</a></li>
+<li>markdown-it渲染器本身是不支持alerts语法，所以此时需要<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/markdown-it-alerts">安装markdown-it-alerts插件</a>。</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>具体安装，可以查看以下的安装命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hexo根目录</span><br><span class="line">npm i markdown-it-alerts --save</span><br></pre></td></tr></table></figure>
+<p>更新hexo的<code>_config.yml</code>文件，如下的配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown-it config</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&#x27;“”‘’&#x27;</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">plugin:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">markdown-it-alerts</span></span><br><span class="line">      <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">&#x27;header-anchor&#x27;</span></span><br><span class="line">    <span class="attr">permalinkSide:</span> <span class="string">&#x27;left&#x27;</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&#x27;¶&#x27;</span></span><br><span class="line">    <span class="attr">case:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">separator:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+</div>
+<ol start="3">
+<li>由于markdown-it-alerts的插件只是寻找到对应markdown语法进行替换，css样式部分它并不负责，所以需要到网站官网去下载样式，<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.4/getting-started/download/">点击下载Bootstrap样式</a>。也可以将样式里面大部分删除，只剩下 alert 相关的CSS样式。</li>
+</ol>
+<h1><span id="3-环境的配置">3 环境的配置</span></h1>
+<p>这里我会划分成两步：</p>
+<ol>
+<li>加载Alerts所需的CSS样式</li>
+<li>优化markdown-it-alerts插件</li>
+</ol>
+<h2><span id="31-加载alerts所需的css样式">3.1 加载Alerts所需的CSS样式</span></h2>
+<p>对于加载额外的样式，可以使用<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/helpers#css">hexo提供的辅助函数（Helpers）</a>。</p>
+<ol>
+<li>将样式存放，即将样式放到<code>hexo根目录/source/css/bootstrap.css</code></li>
+<li>让主题加载这个新添加的样式，寻找到网页head总定义位置，一般在（<code>hexo根目录/themes/你用的主题/layout/_partial/head.ejs</code>），如果还是没有找到，可以看看是否在<code>hexo根目录/themes/你用的主题/layout/layout.ejs</code>。在head.ejs里面添加以下的一句代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- css(&#x27;/css/bootstrap.css&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>此时就会有alerts的样式，开始下一步</p>
+<h2><span id="32-优化markdown-it-alerts插件">3.2 优化markdown-it-alerts插件</span></h2>
+<p>markdown-it-alerts与VNote<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>在Alerts方面还是有所区别，这里就会导致一些尴尬，在VNote<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup>写完，不能在hexo里面直接用。查看以下图表</p>
+<img src="/assert/puml/023bbf7833cd7fc4d7812faffbab91bcf286ada97b037ff093f54dc86113697e.svg">
+<p>此时需要进入到 markdown-it-alerts 插件进行语法分析修改，保证与VNote一致的语法分析。进入<code>博客根目录/node_modules/markdown-it-alerts/index.js</code>，打开进行修改成以下的内容:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> container = <span class="built_in">require</span>(<span class="string">&#x27;markdown-it-container&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">alerts_plugin</span>(<span class="params">md, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> containerOpenCount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> links = options ? options.links : <span class="literal">true</span>;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setupContainer</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        md.use(container, name, &#123;</span><br><span class="line">            <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params">tokens, idx</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (tokens[idx].nesting === <span class="number">1</span>) &#123;</span><br><span class="line">                    containerOpenCount += <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&#x27;&lt;div class=&quot;alert &#x27;</span> + name + <span class="string">&#x27;&quot; role=&quot;alert&quot;&gt;\n&#x27;</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    containerOpenCount -= <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&#x27;&lt;/div&gt;\n&#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isContainerOpen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> containerOpenCount &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">selfRender</span>(<span class="params">tokens, idx, options, env, self</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> self.renderToken(tokens, idx, options);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setupLinks</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> defaultRender = md.renderer.rules.link_open || selfRender;</span><br><span class="line">        </span><br><span class="line">        md.renderer.rules.link_open = <span class="function"><span class="keyword">function</span> (<span class="params">tokens, idx, options, env, self</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (isContainerOpen()) &#123;</span><br><span class="line">                tokens[idx].attrPush([<span class="string">&#x27;class&#x27;</span>, <span class="string">&#x27;alert-link&#x27;</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> defaultRender(tokens, idx, options, env, self);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-primary&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-secondary&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-success&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-info&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-warning&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-danger&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-light&#x27;</span>);</span><br><span class="line">        setupContainer(<span class="string">&#x27;alert-dark&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (links) &#123;</span><br><span class="line">            setupLinks();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>从此VNote与hexo的alerts语法分析就一致了，可以相互使用，开始快乐的写博客吧！！！</p>
+<h1><span id="4-效果">4 效果</span></h1>
+<div class="alert alert-success" role="alert">
+<p>A simple success alert—check it out!</p>
+</div>
+<div class="alert alert-danger" role="alert">
+<p>A simple danger alert—check it out!</p>
+</div>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>VNote是一个更懂程序员和Markdown的笔记软件，可以查看<a target="_blank" rel="noopener" href="https://tamlok.github.io/vnote/zh_cn/">官网了解更多。</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/" class="post-title-link" itemprop="url">时间管理工具Toggl</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 12:04:49" itemprop="dateCreated datePublished" datetime="2020-03-29T12:04:49+08:00">2020-03-29</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a></li><li><a href="#2-%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83">2 基本环境</a><ul><li><a href="#2.1-%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95">2.1 如何记录</a></li></ul></li><li><a href="#3-%E5%9B%9E%E9%A1%BE%E5%88%86%E6%9E%90">3 回顾分析</a></li><li><a href="#4-%E6%97%A5%E5%B8%B8%E5%B0%8F%E6%8A%80%E5%B7%A7">4 日常小技巧</a></li><li><a href="#5-%E5%9B%9E%E9%A1%BE%E6%80%BB%E7%BB%93">5 回顾总结</a></li></ul></div></p>
+<h1><span id="1-前言">1 前言</span></h1>
+<p>我曾遇到过不知道自己一天工作下来，我具体做了什么，时间用在了什么地方。多而杂，频繁切换上下文。这个时候我接触到了<a target="_blank" rel="noopener" href="https://toggl.com">Toggl这款软件</a>。</p>
+<h1><span id="2-基本环境">2 基本环境</span></h1>
+<p>这款软件，它主要可以从几个维度去统计你做的事情：</p>
+<ol>
+<li>Description：具体做的事情描述</li>
+<li>Project：这个事情所在的项目维度</li>
+<li>Tags：属于哪个维度的工作（这里后续再详细讲解一下我的用法）</li>
+</ol>
+<p>这个软件支持多个平台，比如有以下：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/app/timer">Toggl 网页版</a></li>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/toggl-desktop/">Toggl 桌面版</a></li>
+<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.toggl.giskard">Toggl 安卓端</a></li>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/mobile-time-tracking-app/">Toggl iOS端</a></li>
+</ol>
+<h2><span id="21-如何记录">2.1 如何记录</span></h2>
+<p>平时我在做一件事情的时候，会先使用Toggl 桌面版(Mac版本)，开启一次记录，这里有两种方式：</p>
+<ol>
+<li>开启完全全新的任务</li>
+<li>延续上一次未完成的任务</li>
+</ol>
+<h3><span id="211-全新任务的开启">2.1.1 全新任务的开启</span></h3>
+<p>开启全新的任务，可以使用快捷键 <code>Command + N</code>。这里客户端不会让你填写信息，此时你需要再使用<code>Command + E</code>，可以编辑当下进行的任务。</p>
+<ol>
+<li>Description：常规的填写，这里我会尽量简化信息，但是也要保证我下次查看的时候能够知道当时做什么。</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>如果你对于你做的事情有相关的link，我认为是可以带上，这样好方便跳转查阅更多的信息。</p>
+</div>
+<ol start="2">
+<li>Project：这个是比较大的维度，跟你做的具体项目上挂钩，你可以知道你为了某个项目具体的投入与产出比情况。此选项可以多选，我平时一般只是规划成一个项目，对于后续查看Reports时，会相对比较方便。</li>
+<li>Tags：打标签这个也可以多选。对于我来讲，我会从别的维度去查看自己的。比如你做一个项目的时候，会划分 开会，方案设计，方案落地等等，此处可以看你把时间大头放在什么地方。</li>
+</ol>
+<div class="alert alert-warning" role="alert">
+<p>目前我在Tags方面划分了以下多个角度：</p>
+<ul>
+<li>计划外的方案Review：从这个维度可以知道有多少方案Review需要我去做，是否有跟别的同事做重了。如何商定与别的同事分工合作。</li>
+<li>计划外的会议：从这个维度可以知道一些临时拉入的会议占比情况如何，是否可以与别的技术同事分工合作，减少彼此时间的重叠。</li>
+<li>协助：在一些同事临时叫协助的时候，时间长度的损耗与频率有多高，是否这部分需要有一定的流程建设，把时间规划好，能最大程度保证原计划的内容完成度</li>
+<li>研发：这块指的是具体写代码的时间</li>
+<li>研发方案设计：用于一个功能在做的时候，去书写UML方案设计</li>
+<li>研发会议：功能在开展前，进行技术Review会议，明确分工</li>
+<li>研发方案Review：计划安排的功能上，进行方案Review与日常的代码Review</li>
+<li>研发需求整理：整理一个功能的需求背景，相关点的情况</li>
+</ul>
+</div>
+<h3><span id="212-延续上一次任务">2.1.2 延续上一次任务</span></h3>
+<p>对于因为一些原因打断了原来的任务，此时需要再次投入继续完成，此时可以在list里面找到那一项，点击右侧的开始按钮。</p>
+<h1><span id="3-回顾分析">3 回顾分析</span></h1>
+<p>我平日里，会从 周/月/季度 的角度回顾总结我自己的工作中时间上的耗时，<a target="_blank" rel="noopener" href="https://toggl.com/app/reports/summary">在网页版的Reports</a>可以查看到我自己在其中的投入情况，以上的事情是否很繁琐与麻烦呢？做的意义是什么，这里我罗列一下我的看法：</p>
+<ol>
+<li>比如从tags上刷选，可以看到具体是什么事情blocks住我，让我的计划并没有按照我的想法执行。此时可以向上反馈，请求上级能通过什么方式帮助到自己。</li>
+<li>当填写公司工时系统时，可以通过<a target="_blank" rel="noopener" href="https://toggl.com/app/timer">网页版复制粘贴到工时系统</a></li>
+<li>当进行 月度/季度 总结的时候，也可以通过这个查看到自己做过的每一个事情，具体的信息遗留，提供更多有力的证据去证明自己曾经的输出。</li>
+</ol>
+<p>::: danger<br>
+这里我想讲那么一点，管理不是只有上级管理下级，还有<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E5%90%91%E4%B8%8A%E7%AE%A1%E7%90%86">向上管理</a>，需要让上级知道你做得怎样，不要期望上级是你肚子里的虫子，他能了解你的一切。这是一件对你自己工作输出负责的事情。</p>
+<img src="/assert/puml/400646c2563e9641bc99ca00f883673d9881fca889fdbff0183556f579a1010f.svg">
+<p>:::</p>
+<h1><span id="4-日常小技巧">4 日常小技巧</span></h1>
+<p>对于不同的客户端，我有不同的使用场景，这里可以罗列一下我日常的使用方式：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/app/timer">Toggl 网页版</a>：用于填写工时，查看Reports时来查看</li>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/toggl-desktop/">Toggl 桌面版</a>：由于网页版长久打开看起来存在内存泄漏，或者打开时会有时间上的损耗，所以一般使用客户端，能尽可能减少电脑的负荷。也是日常用于记录的工具</li>
+<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.toggl.giskard">Toggl 安卓端</a>/<a target="_blank" rel="noopener" href="https://toggl.com/mobile-time-tracking-app/">Toggl iOS端</a>：一般是用于电脑不在身边但是需要记录，或者离开电脑忘记关闭计时器时使用的。</li>
+</ol>
+<h1><span id="5-回顾总结">5 回顾总结</span></h1>
+<p>时间总是不断流逝，严谨对待自己的每一分每一秒，回顾与总结，我相信我们都会变得越来越好</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">网页浏览全键盘操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-28 23:52:41" itemprop="dateCreated datePublished" datetime="2020-03-28T23:52:41+08:00">2020-03-28</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a></li><li><a href="#2-alfred%E7%94%A8%E6%B3%95">2 Alfred用法</a><ul><li><a href="#2.1-%E5%88%A9%E7%94%A8alfred%E6%89%BE%E5%88%B0safari%E6%94%B6%E8%97%8F%E7%9A%84%E7%BD%91%E9%A1%B5">2.1 利用Alfred找到Safari收藏的网页</a></li><li><a href="#2.2-%E5%88%A9%E7%94%A8alfred%E6%89%BE%E5%88%B0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6">2.2 利用Alfred找到本地文件</a></li></ul></li><li><a href="#3-safari%E6%8F%92%E4%BB%B6vimari">3 Safari插件Vimari</a></li><li><a href="#4-%E6%80%BB%E7%BB%93">4 总结</a></li></ul></div></p>
+<h1><span id="1-前言">1 前言</span></h1>
+<p>对于此篇文章，大家可以从以下两个角度来看：</p>
+<ol>
+<li>大家是否有很多网页存储在自己的收藏夹，时不时要去翻看呢？</li>
+<li>大家在浏览网页的时候，是否不太喜欢用鼠标，但是又不得不用？</li>
+</ol>
+<p>如果都没有这方面的烦恼，那可以跳阅本文章哟！！</p>
+<h1><span id="2-alfred用法">2 Alfred用法</span></h1>
+<p>Alfred是一款非常高效，可以代替系统自带的Spotlight软件。是一款拥有非常历史悠久历史的软件，我记得我开始接触它的时候，是在2013年的时候。具体你想了解，<a target="_blank" rel="noopener" href="https://www.alfredapp.com">可以点击此处进入它的官网了解它更多</a>。在这里我更多讲解一下我的用法。</p>
+<p>大家是否有遇到我一样的场景，比如以下：</p>
+<ol>
+<li>喜欢收藏很多页面到自己Safari收藏夹内。（当然这里会分门别类，以前就没分得很细，导致很多都要找很久才找回来）</li>
+<li>文件放到iCloud里面，也划分很多位置，层层嵌套的文件夹。</li>
+</ol>
+<p>每次想到好像我是有收集的这个信息的时候，我就要从这些成千上万的内容里面去找到当初我的收藏。阿，好累。此时Alfred就可以帮助到我了</p>
+<p>::: info<br>
+这里说一说，我平时喜欢spotlight的快捷键关闭了，将其快捷键改成了打开Alfred，完全替代系统<br>
+:::</p>
+<h2><span id="21-利用alfred找到safari收藏的网页">2.1 利用Alfred找到Safari收藏的网页</span></h2>
+<ol>
+<li>点击Alfred软件的<code>Preferences...</code></li>
+<li>选择<code>Features</code>中的Web Bookmarks.<br>
+<img src="/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233002036_1507899910.png" alt></li>
+</ol>
+<p>此时Alfred就有权限访问你收藏夹内的内容。打开Alfred，搜索关键字，回车就可以快速打开你想要的网站。这里需要记住网站的开头，貌似模糊搜索支持一般般</p>
+<p><img src="/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/20200328233103972_819269123.png" alt></p>
+<h2><span id="22-利用alfred找到本地文件">2.2 利用Alfred找到本地文件</span></h2>
+<p>可能有人会提问，找到本地文件有什么特别的吗？Spotlight也支持呢！！！</p>
+<p>这里官方提供两个命令方式：</p>
+<ol>
+<li>用<code>访达/Finder</code>打开文件所在的文件夹，打开Alfred输入窗口，比如以下的命令。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find 文件名前部分</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>打开文件。打开Alfred输入窗口，比如以下的命令。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open 文件名前部分</span><br></pre></td></tr></table></figure>
+<h1><span id="3-safari插件vimari">3 Safari插件Vimari</span></h1>
+<p>它是一款可以让你的双手在浏览Safari的时候，不用鼠标就可以操作的插件。<a target="_blank" rel="noopener" href="https://github.com/televator-apps/vimari">官网地址，可以在这里查看</a><br>
+你可以在Mac Store上下载这款软件，解放你的鼠标。<br>
+如果你有学过Vim，我相信你1分钟内就能解决。没学过也不影响，因为它并不会很复杂。</p>
+<p>我自己记住的方式：</p>
+<ul>
+<li>上下左右这几个操作多几次就差不多了</li>
+<li>gg: 我们玩游戏的时候，常常一句我们gg了，要重新来了，代表滚到页面的开始</li>
+<li>G：这个跟gg关联在一起记忆，没有太多的方法</li>
+<li>u/d：是一对比起 j k 操作一行行来要更加方便</li>
+<li>q/w: 代表前一个标签页/后一个标签页，比使用系统的<code>Ctrl + Tab</code>要舒服多了，记住在自己键盘的左上角</li>
+<li>x：联想到我们关页面的 x 标志</li>
+<li>t：就不太好用了，这个不会将聚焦点放到新建的标签页网页Link位置，这里还是用系统的快捷键反而合适。<code>Ctrl + t</code></li>
+<li>r: 联想到单词reload，总体来将还是挺好的。</li>
+</ul>
+<h1><span id="4-总结">4 总结</span></h1>
+<p>活用工具，让自己更加Focus在工具无法解决的问题，我相信会见到越来越棒的自己</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2019/12/05/%E4%BD%BF%E7%94%A8Valine%E5%9C%A8Hugo%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/05/%E4%BD%BF%E7%94%A8Valine%E5%9C%A8Hugo%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/index/" class="post-title-link" itemprop="url">使用Valine在Hugo添加评论功能</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-05 05:21:52" itemprop="dateCreated datePublished" datetime="2019-12-05T05:21:52+08:00">2019-12-05</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/12/05/%E4%BD%BF%E7%94%A8Valine%E5%9C%A8Hugo%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/index/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/%E4%BD%BF%E7%94%A8Valine%E5%9C%A8Hugo%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="1-背景">1 背景</span></h1>
+<p>对于我们在写搭建github.io的博客的时候，由于Hugo本身是静态网站，并不是动态网站。那我们可能就无法知道到底我们写的博客有多少浏览量，还有如果文章写的有问题，大家无法告诉你要怎么更改。所以我在这里引入了<a target="_blank" rel="noopener" href="https://valine.js.org">Valine</a>。它是一款基于<a target="_blank" rel="noopener" href="https://www.leancloud.cn">LeanCloud</a>无后端的评论系统，很方便集成的。以下的内容是告诉你如何在Hugo中集成Valine评论系统。</p>
+<h2><span id="11-最终的愿景">1.1 最终的愿景</span></h2>
+<p>我们希望通过Valine能达到以下的两个效果</p>
+<ol>
+<li>统计出浏览量，知道到底我们写的文章有多受欢迎</li>
+<li>附带评论的功能，可以收到来自外部的反馈。得到很好的交流作用</li>
+</ol>
+<h1><span id="2-开始集成">2 开始集成</span></h1>
+<p>我们是要适配一款基于<a target="_blank" rel="noopener" href="https://www.leancloud.cn">LeanCloud</a>无后端的评论系统，那意味着我们需要先到LeanCloud平台上进行注册，那我们看下下一个操作</p>
+<h2><span id="21-leancloud配置">2.1 LeanCloud配置</span></h2>
+<h3><span id="211-创建应用">2.1.1 创建应用</span></h3>
+<p><a target="_blank" rel="noopener" href="https://www.leancloud.cn">点开LeanCloud，然后进行注册的操作</a>，进入控制台，点击<span style="color:red">创建应用</span>，如下图</p>
+<img src="/index.assets/image-20191214095704295.png" alt="image-20191214095704295" style="zoom:50%;">
+<h3><span id="212-创建存储器">2.1.2 创建存储器</span></h3>
+<p>创建好后，进入刚刚创建的应用配置页面，进入到<span style="color:red">存储</span>=》<span style="color:red">结构化数据</span>，创建两个Class，如下图</p>
+<ol>
+<li>Comment：是一个记录评论相关信息的class</li>
+<li>Counter：是一个记录文章的访问量的class</li>
+</ol>
+<img src="/index.assets/image-20191214100028492.png" alt="image-20191214100028492" style="zoom:67%;">
+<h3><span id="213-安全配置">2.1.3 安全配置</span></h3>
+<p>此处需要配置你的域名，防止因为一些爬虫，或者恶意软件导致你的流量虚假暴增，最终支付昂贵的收费。请看以下的配置过程</p>
+<img src="/index.assets/image-20191214100523986.png" alt="image-20191214100523986" style="zoom: 50%;">
+<blockquote>
+<p>题外话题，可能有人关心这个收费是怎样。目前采用的是开发版本，在1G的流量内是免费的。超出的部分，每天每超出1G的量支付0.1元。据目前的查看，3周大约只要550KB，所以用量可以说是能接受的范围。以上的解说是2019-12-14日。<a target="_blank" rel="noopener" href="https://www.leancloud.cn/pricing/">具体以官方价位为准，请点开这里查看</a></p>
+</blockquote>
+<h3><span id="214-获取app-id和app-key">2.1.4 获取APP ID和APP Key</span></h3>
+<p>APP ID和APP Key是作用于你的请求时，用于校验身份使用的。可以在配置页面此处找到，请记住，后续的操作需要使用到</p>
+<p><img src="/index.assets/image-20191214103055359.png" alt="image-20191214103055359"></p>
+<h2><span id="22-如何配置valine参数">2.2 如何配置Valine参数</span></h2>
+<p>我们需要将上面LeanCloud拿到的APP ID和APP Key转化为Valine的配置参数</p>
+<p>可以看看我的配置参数</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">params:</span></span><br><span class="line">    <span class="attr">valine:</span></span><br><span class="line">    	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    	<span class="attr">appId:</span> <span class="string">你的APP</span> <span class="string">ID</span></span><br><span class="line">    	<span class="attr">appKey:</span> <span class="string">你的APP</span> <span class="string">Key</span></span><br><span class="line">    	<span class="attr">notify:</span> <span class="literal">false</span></span><br><span class="line">    	<span class="attr">verify:</span> <span class="literal">false</span></span><br><span class="line">    	<span class="attr">avatar:</span> <span class="string">&quot;robohash&quot;</span></span><br><span class="line">    	<span class="attr">placeholder:</span> <span class="string">&quot;谢谢你的支持&quot;</span></span><br><span class="line">    	<span class="attr">visitor:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>enable：用于决定是否开启评论的功能，暂时记录的一个flag。</li>
+<li>notify：评论回复邮件提醒，请参考<a target="_blank" rel="noopener" href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE">配置</a>。</li>
+<li>verify：验证码服务。</li>
+<li>avatar：头像，更多的信息请查看<a target="_blank" rel="noopener" href="https://valine.js.org/avatar.html">头像配置</a>。</li>
+<li>placeholder：评论框<code>占位提示符</code>。</li>
+<li>visitor：<a target="_blank" rel="noopener" href="https://valine.js.org/visitor.html">文章访问量统计</a>。</li>
+</ul>
+<p>更多的详情可以查看：<a target="_blank" rel="noopener" href="https://valine.js.org/configuration.html">https://valine.js.org/configuration.html</a></p>
+<p><span style="color:red">将以上第二行以下的内容放到你的config.yaml配置文件中params的下一层级</span>，如果你的配置文件是别的格式（例如toml/json）请自行转化格式的书写</p>
+<h2><span id="23-如何在html页面添加">2.3 如何在HTML页面添加</span></h2>
+<p>先看一下以下的一段HTML代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- valine --&gt;</span><br><span class="line">  </span><br><span class="line">  &#123;&#123;- <span class="keyword">if</span> .Site.Params.valine.enable -&#125;&#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- id 将作为查询条件 --&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;&#123;&#123; .URL | relURL &#125;&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;leancloud_visitors&quot;</span> <span class="attr">data-flag-title</span>=<span class="string">&quot;&#123;&#123; .Title &#125;&#125;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>文章阅读量 <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;leancloud-visitors-count&quot;</span>&gt;</span>1000000<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;vcomments&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">      new Valine(&#123;</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          el: &#x27;#vcomments&#x27; ,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          appId: &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.appId</span> &#125;&#125;</span><span class="xml">&#x27;,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          appKey: &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.appKey</span> &#125;&#125;</span><span class="xml">&#x27;,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          notify: </span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.notify</span> &#125;&#125;</span><span class="xml">, </span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          verify: </span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.verify</span> &#125;&#125;</span><span class="xml">, </span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          avatar:&#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.avatar</span> &#125;&#125;</span><span class="xml">&#x27;, </span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          placeholder: &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.placeholder</span> &#125;&#125;</span><span class="xml">&#x27;,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          visitor: </span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.visitor</span> &#125;&#125;</span><span class="xml"></span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">      &#125;);</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">  </span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&#123;&#123;- end &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的一段HTML就是完成评论区的作用，以下是效果图</p>
+<p><img src="/index.assets/image-20191221150427334.png" alt="image-20191221150427334"></p>
+<p>我们来分章节解析不同的模块的作用</p>
+<h3><span id="231-评论功能的开关">2.3.1 评论功能的开关</span></h3>
+<p>2.1中的最终形态的HTML中，添加了这个语句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;- <span class="keyword">if</span> .Site.Params.valine.enable -&#125;&#125;</span><br><span class="line"> </span><br><span class="line">&#123;&#123;- end &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>它的作用是所有的文章是否开启评论区的作用</p>
+<p><span style="color:red">此时有人想问，在哪里去控制开关呢？</span></p>
+<p>看到<span style="color:red">.Site.Params</span>可以联想到博客里面有个config.yaml的配置文件（Hugo的配置文件有三种yaml/toml/json），在配置文件中，如果你根据2.2章节的操作后，会有以下的一个配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">params:</span></span><br><span class="line">	<span class="attr">valine:</span></span><br><span class="line">		<span class="comment"># 此处就可以操作评论功能是否开启</span></span><br><span class="line">		<span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>如果填写了true，则开启所有的文章的评论功能，反之，填写了false，则关闭所有的文章的评论功能</p>
+<h3><span id="232-评论区界面渲染">2.3.2 评论区界面渲染</span></h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- id 将作为查询条件 --&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;&#123;&#123; .URL | relURL &#125;&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;leancloud_visitors&quot;</span> <span class="attr">data-flag-title</span>=<span class="string">&quot;&#123;&#123; .Title &#125;&#125;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>文章阅读量 <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;leancloud-visitors-count&quot;</span>&gt;</span>1000000<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;vcomments&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">      new Valine(&#123;</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          el: &#x27;#vcomments&#x27; ,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          appId: &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.appId</span> &#125;&#125;</span><span class="xml">&#x27;,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          appKey: &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.appKey</span> &#125;&#125;</span><span class="xml">&#x27;,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          notify: </span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.notify</span> &#125;&#125;</span><span class="xml">, </span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          verify: </span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.verify</span> &#125;&#125;</span><span class="xml">, </span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          avatar:&#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.avatar</span> &#125;&#125;</span><span class="xml">&#x27;, </span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          placeholder: &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.placeholder</span> &#125;&#125;</span><span class="xml">&#x27;,</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">          visitor: </span><span class="template-variable">&#123;&#123; <span class="name">.Site.Params.valine.visitor</span> &#125;&#125;</span><span class="xml"></span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">      &#125;);</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="xml">  </span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>以上的一个JavaScript是负责渲染评论区的界面代码，评论区的不同样式与功能的配置，可以关注到代码里面有<span style="color:red">.Site.Params.valine</span>，这里就是获取了在2.2章节中记录的valine配置信息。可能大家有以下的两个问题：</p>
+<ol>
+<li>
+<p>我应该怎样修改已有的配置？</p>
+<p>可以通过config.yaml去修改你想要的配置，以上的HTML是存放到模版（请看2.3.3章节了解详情）。对于HTML中的不要用hardcode，这样以后的维护将到处都有</p>
+</li>
+<li>
+<p>是否还有更多有趣的配置我不了解？</p>
+<p>valine还有其他的配置，<a target="_blank" rel="noopener" href="https://valine.js.org/configuration.html">可以点击此处</a>。</p>
+</li>
+</ol>
+<h3><span id="233-在哪里添加valine的html代码">2.3.3 在哪里添加Valine的HTML代码</span></h3>
+<p>Hugo是一个基于主题模版去渲染文章，那我们的HTML代码就需要放到模版中。</p>
+<p>第一步，寻找文章模版存放的位置。一般来讲，是存在在<span style="color:red">根目录/themes/你的主题名/layouts/_default/single.html</span></p>
+<p>第二步，打开文件，大概的结构可能是这样</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;- define &quot;main&quot; -&#125;&#125;</span><br><span class="line"></span><br><span class="line">    &#123;&#123;- partial &quot;navbar.html&quot; . -&#125;&#125;</span><br><span class="line">    &#123;&#123;- partial &quot;navbar-clone.html&quot; . -&#125;&#125;</span><br><span class="line">		<span class="comment">&lt;!-- 这里插入Valine的HTML代码 --&gt;</span></span><br><span class="line">		&#123;&#123;- partial &quot;footer.html&quot; . -&#125;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Back To Top Button --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;backtotop&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    &#123;&#123;- partial &quot;sidebar.html&quot; . -&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;- end -&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>这里是将一个文章拆分了不同的html，将其拼接成最终的博客网站。</p>
+<blockquote>
+<p>为什么要这么做？我的猜想：是为了可复用性。</p>
+<p>想想一个博客网站，有多个页面，但是顶部和底部的导航栏一般都是同样的样式，如果是通过拷贝的方式，一个导航的改变，将需要到处修改。</p>
+<p>如果是要reference的方式，只有一份源码，所有的页面都依赖这一份，一改则影响所有的页面的渲染</p>
+</blockquote>
+<p>第三步，在第二步的例子代码中注释的<span style="color:red"><!-- 这里插入Valine的HTML代码 --></span>添加2.3章节中整体的评论区valine代码。这样就可以实现本文下方的评论功能</p>
+<h1><span id="3-查看数据">3 查看数据</span></h1>
+<p>首先需要先登陆到leancloud的网站，<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/data.html">点击这里</a>，登陆你的账号。然后进入结构化的数据，就可以看到每个文章的一个请求数据</p>
+<p><img src="/index.assets/image-20191221161307115.png" alt="image-20191221161307115"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2019/11/22/%E4%BD%BF%E7%94%A8Typora%E4%B9%A6%E5%86%99Hugo%E5%8D%9A%E5%AE%A2/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/22/%E4%BD%BF%E7%94%A8Typora%E4%B9%A6%E5%86%99Hugo%E5%8D%9A%E5%AE%A2/index/" class="post-title-link" itemprop="url">使用Typora书写Hugo博客</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-22 04:50:34" itemprop="dateCreated datePublished" datetime="2019-11-22T04:50:34+08:00">2019-11-22</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/22/%E4%BD%BF%E7%94%A8Typora%E4%B9%A6%E5%86%99Hugo%E5%8D%9A%E5%AE%A2/index/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/22/%E4%BD%BF%E7%94%A8Typora%E4%B9%A6%E5%86%99Hugo%E5%8D%9A%E5%AE%A2/index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="1-背景">1. 背景</span></h1>
+<blockquote>
+<p>如果未了解Hugo是什么，请查看此篇文章，<a href="https://jsonseng.github.io/tutorial/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">如何使用Hugo搭建博客</a></p>
+</blockquote>
+<p>是否有考虑过，如果直接使用hugo来写博客，每次只能打开网页来查看markdown的最终效果。</p>
+<p>比如你可能需要引用一个照片，但是此时照片需要放到 <span style="color:red">hugo/static</span>。如果你想做到可以正常看到照片，还需要设置static的相对路径，好麻烦</p>
+<p>此篇文章是解决你在书写上的cost。</p>
+<p>我们最终想做到是使用 typora 书写后的文章，只要执行发布即可完成</p>
+<h1><span id="2-如何使用typora书写hugo博客">2. 如何使用Typora书写Hugo博客</span></h1>
+<p>首先我们先要使用命令创建一个博客的markdown</p>
+<h2><span id="21-创建markdown">2.1 创建Markdown</span></h2>
+<p>请使用以下的命令创建博客</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> hugo new 一级目录/文章标题/index.md</span></span><br></pre></td></tr></table></figure>
+<p>可能有人疑惑，为什么这里，不使用文章标题作为markdown文件的名字，而要抽离出一个文件夹名字</p>
+<p>出于两个原因：</p>
+<ol>
+<li>照片资源</li>
+<li>文件集中</li>
+</ol>
+<h3><span id="211-照片资源">2.1.1 照片资源</span></h3>
+<p>对于很多第三方的markdown添加照片的时候，路径默认只是 <span style="color:red">图片文件夹/图片名</span>。那里面照片最终的HTML照片的路径将 &lt;img src=“<span style="color:red">图片文件夹/图片名</span>” alt=“Hugo-File-Tree” /&gt;。此照片的搜索路径将使用当前文章的域名路径。比如当前文章的路径是 https://{server address}/turtorial/使用Typora书写Hugo博客/。那照片搜索的路径将变成 https://{server address}/turtorial/使用Typora书写Hugo博客/图片文件夹/图片名</p>
+<blockquote>
+<p>以下是我们Hugo中文件存在的情况，但是我们没有创建一个叫“使用Typora书写博客”的文件夹，那照片其实是找不到的。</p>
+<p>实际上，照片的路径是 https://{server address}/turtorial/图片文件夹/图片名</p>
+<p>我们文章，照片的搜索路径是 https://{server address}/turtorial/使用Typora书写Hugo博客/图片文件夹/图片名</p>
+<p><img src="/index.assets/%E9%94%99%E8%AF%AF%E7%9A%84%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.svg" alt="错误的文件目录"></p>
+</blockquote>
+<blockquote>
+<p>Hugo官方的建议是使用markdown输入的路径格式前面加个 <code>/</code>，比如 /图片文件夹/图片名，这样最终照片的寻找路径会变成 https://{server address}/图片文件夹/图片名</p>
+<p>也是为什么官方建议把图片，js，css资源放到static文件夹，因为static文件夹内的资源文件会copy到 https://{server address} 根目录下</p>
+<p><a target="_blank" rel="noopener" href="https://gohugo.io/content-management/static-files/">详细可点开此链接，查看官方文档</a></p>
+<p>官方的文档的确是可以解决以上的问题，但是会导致markdown与引用的照片资源分离，其实这样不利于编写。这里教导的方式，你用typora写好后，把文章放到 hugo/content/一级菜单/文章文件夹 即可完成整个发布</p>
+</blockquote>
+<p>最终的文件目录效果要如下建立：</p>
+<p><img src="/index.assets/%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%85%A7%E7%89%87%E8%B7%AF%E5%BE%84.svg" alt="正确的照片路径"></p>
+<h3><span id="212-文件更集中">2.1.2 文件更集中</span></h3>
+<p>如果建立好一个文件夹，那关于此文章的所有的资源都将放在 <span style="color:red">文章文件夹</span> 中。比如你后来可能改了一些图片，不致于需要到处找引用的照片资源在哪里，你需要去删除，与替换掉资源。</p>
+<h2><span id="22-配置typora引用的照片处理">2.2 配置typora引用的照片处理</span></h2>
+<p>对于Typora是提供了引用照片如何处理功能。当你引用一个与markdown不在一个文件夹目录下的资源时，typora可以帮你建立特定规则的文件夹，并拷贝照片到 特定规则的文件夹。</p>
+<p>你可以进入Typora的 偏好设置 =》 图像，选择以下的配置项</p>
+<p><img src="/index.assets/image-20191124111117356.png" alt="image-20191124111117356"></p>
+<p>此时只要你拖动照片到markdown文章时，Typora会自动帮你创建文件夹与copy一份照片到指定文件夹的目录下。</p>
+<h1><span id="3-如何发布">3. 如何发布</span></h1>
+<p>将文章拷贝到Hugo/content/一级菜单的目录，执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="built_in">cd</span> Hugo文件夹目录</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hugo</span></span><br><span class="line"></span><br><span class="line">                   | EN | RU</span><br><span class="line">+------------------+----+----+</span><br><span class="line">  Pages            | 12 |  3</span><br><span class="line">  Paginator pages  |  0 |  0</span><br><span class="line">  Non-page files   | 26 |  0</span><br><span class="line">  Static files     | 22 | 22</span><br><span class="line">  Processed images | 11 |  0</span><br><span class="line">  Aliases          |  1 |  0</span><br><span class="line">  Sitemaps         |  0 |  0</span><br><span class="line">  Cleaned          |  0 |  0</span><br><span class="line"></span><br><span class="line">Total in 227 ms</span><br></pre></td></tr></table></figure>
+<p>然后把public文件夹，push到远端的github repository</p>
+<p>完成最终的发布</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2019/11/17/Hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/17/Hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index/" class="post-title-link" itemprop="url">Hugo搭建博客</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-17 03:55:53" itemprop="dateCreated datePublished" datetime="2019-11-17T03:55:53+08:00">2019-11-17</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/17/Hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/17/Hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[<div class="table-of-contents"><ul><li><a href="#hugo%E6%98%AF%E4%BB%80%E4%B9%88">Hugo是什么</a></li><li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8hugo">为什么使用Hugo</a><ul><li><a href="#%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9B%B4%E5%A5%BD">版本兼容性更好</a></li></ul></li><li><a href="#%E6%80%8E%E6%A0%B7%E4%BD%BF%E7%94%A8hugo">怎样使用Hugo</a><ul><li><a href="#%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85">环境的安装</a></li><li><a href="#%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE">创建你的博客工程项目</a></li><li><a href="#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98">安装主题</a></li><li><a href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0">创建第一篇文章</a></li><li><a href="#%E6%96%87%E7%AB%A0%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BA%86%E8%A7%A3">文章的进阶了解</a></li></ul></li><li><a href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83">如何发布</a><ul><li><a href="#%E5%8F%91%E5%B8%83%E5%88%B0github">发布到Github</a></li></ul></li></ul></div></p>
+<h1><span id="hugo是什么">Hugo是什么</span></h1>
+<p>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
+<h1><span id="为什么使用hugo">为什么使用Hugo</span></h1>
+<h2><span id="版本兼容性更好">版本兼容性更好</span></h2>
+<p>之前是有用过Jekyll，过了一段时间会有一些升级问题。配置过于复杂，不集中。</p>
+<p>使用Hugo，你可以集成多个主题，主题之间的切换，只是在config.yaml / config.toml 里修改主题即可。</p>
+<p>这是由于主题的原始文件是存放在themes，而内容与资源文件是有单独的位置存放。做到数据与模版隔离的</p>
+<p><img src="/index.assets/Hugo-File-Tree.svg" alt="Hugo-File-Tree"></p>
+<h1><span id="怎样使用hugo">怎样使用Hugo</span></h1>
+<p>以下的例子是使用以下主题作为例子 <a target="_blank" rel="noopener" href="https://themes.gohugo.io/hugo-refresh/">hugo-refresh</a></p>
+<h2><span id="环境的安装">环境的安装</span></h2>
+<p>官方提供hugo的命令工具，我们可以使用以下的命令来安装hugo的命令工具</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> brew install hugo</span></span><br><span class="line"></span><br><span class="line">// 命令行会自动输出以下内容</span><br><span class="line">Updating Homebrew...</span><br><span class="line">==&gt; Auto-updated Homebrew!</span><br><span class="line">Updated 2 taps (homebrew/core and homebrew/cask).</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/hugo-0.54.0.mojave.bottle.tar.gz                                                                 </span><br><span class="line">Already downloaded: /Users/bep/Library/Caches/Homebrew/downloads/ba894b1dba33feb6be39bf955a7e84f8f40dd8f558f5058e569a0bc21ecc5c19--hugo-0.54.0.mojave.</span><br><span class="line">bottle.tar.gz</span><br></pre></td></tr></table></figure>
+<p>再者输入以下的命令，查看是否hugo的工具已经可以投入使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> hugo version</span></span><br></pre></td></tr></table></figure>
+<h2><span id="创建你的博客工程项目">创建你的博客工程项目</span></h2>
+<p>使用以下的命令，可以创建出一个博客工程项目。可以先用cd进入到你要存放的位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// vince的部分 类似一个文件夹名，你可以自定义自己的博客工程根目录名称</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hugo new site vince</span></span><br><span class="line"></span><br><span class="line">// 以下是命令行的输出</span><br><span class="line">Congratulations! Your new Hugo site is created in /Users/vince.zheng/Documents/github/Vince.</span><br><span class="line"></span><br><span class="line">Just a few more steps and you&#x27;re ready to go:</span><br><span class="line"></span><br><span class="line">1. Download a theme into the same-named folder.</span><br><span class="line">   Choose a theme from https://themes.gohugo.io/ or</span><br><span class="line">   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.</span><br><span class="line">2. Perhaps you want to add some content. You can add single files</span><br><span class="line">   with &quot;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.</span><br><span class="line">3. Start the built-in live server via &quot;hugo server&quot;.</span><br><span class="line"></span><br><span class="line">Visit https://gohugo.io/ for quickstart guide and full documentation.</span><br></pre></td></tr></table></figure>
+<h2><span id="安装主题">安装主题</span></h2>
+<p>我们需要完成以下几步：</p>
+<ol>
+<li>进入博客的根目录</li>
+<li>git初始化</li>
+<li>添加主题的仓库到git的submodule里</li>
+<li>添加主题设置到hugo工程的配置文件（博客的根目录有个config.yaml是博客的基本配置文件）</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 第一步：进入博客的根目录</span><br><span class="line">cd vince【此处填写你自己博客工程的名称】</span><br><span class="line"></span><br><span class="line">// 第二步：git初始化</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">// 第三步：添加主题的仓库到git的submodule里</span><br><span class="line">// 命令的是这样组装：git submodule add 【主题的git下载地址】 【最终存放主题的位置，`themes/`这个前缀是必须的，hugo会从`themes/`目录下寻找主题的文件】</span><br><span class="line">git submodule add https://github.com/PippoRJ/hugo-refresh.git themes/hugo-refresh</span><br><span class="line"></span><br><span class="line">// 添加主题设置到hugo工程的配置文件（博客的根目录有个config.yaml是博客的基本配置文件）</span><br><span class="line">// 先普及：博客的配置文件存放（根目录/config.yaml)，主题的例子配置文件存放(根目录/themes/主题目录/exampleSite/config.toml or 根目录/themes/主题目录/exampleSite/config.yaml)</span><br><span class="line">// 将主题里面的默认配置文件拷贝到博客的配置文件</span><br></pre></td></tr></table></figure>
+<h2><span id="创建第一篇文章">创建第一篇文章</span></h2>
+<p>hugo提供一个命令可以执行创建文章的markdown</p>
+<hr>
+<details>
+  <summary>官方的Quick Start例子</summary>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new posts/my-first-post.md</span><br></pre></td></tr></table></figure>
+<p>此方法会导致如果想换总菜单的logo变得异常困难，yaml里面的路径的根目录是文章的名字再拓展的</p>
+</details>
+<hr>
+<p>建议采用以下的方式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> hugo new 一级目录(会在主页右上角展示，建议用于分大类上)/文章的标题(会自动创建成文件夹)/index.md</span></span><br></pre></td></tr></table></figure>
+<p>此时就会创建出你需要的markdown文件用于发布文章。存放在 Hugo工程目录/content/一级目录/文章标题/index.md</p>
+<hr>
+<details>
+  <summary>我的例子</summary>
+  比如我的一篇文章地址路径：vince/content/一级目录/文章标题/index.md
+</details>
+<hr>
+<h2><span id="文章的进阶了解">文章的进阶了解</span></h2>
+<h3><span id="一篇文章的文件存放目录">一篇文章的文件存放目录</span></h3>
+<p>可能你会疑惑：下图中logo照片如何设置，请看YAML设置的例子</p>
+<p><img src="/index.assets/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.svg" alt="一篇文章的目录结构"></p>
+<h3><span id="yaml设置">YAML设置</span></h3>
+<p>YAML内供多种属性的设置。常用的属性有哪些呢？请看下方</p>
+<hr>
+<details>
+  <summary>YAML是什么，在哪里？</summary>
+  [YAML是什么可以点开此链接查看。](https://www.ruanyifeng.com/blog/2016/07/yaml.html)
+  YAML所处的位置，在文章开头，被两行`---`所包围
+</details>
+<hr>
+<p><img src="/index.assets/YAML%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE.svg" alt="YAML配置项目"></p>
+<hr>
+<details>
+  <summary>YAML例子</summary>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">&quot;Hugo搭建博客&quot;</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019-11-17T11:55:53+08:00</span></span><br><span class="line"><span class="attr">draft:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">&quot;Hugo&quot;</span>, ]</span><br><span class="line"><span class="attr">summary:</span> <span class="string">&quot;教你如何从0到1搭建hugo博客&quot;</span></span><br><span class="line"><span class="attr">summaryImage:</span> <span class="string">logo/hugo-logo.png</span></span><br></pre></td></tr></table></figure>
+</details>
+<hr>
+<h1><span id="如何发布">如何发布</span></h1>
+<h2><span id="发布到github">发布到Github</span></h2>
+<p>使用你的github账号，创建一个工程。比如我在GitHub上的用户名叫jsonseng。那博客我需要创建一个叫 <code>jsonseng.github.io</code> 的工程。然后将此工程关联到本地目录的Repository</p>
+<p>可以通过执行下面的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="built_in">cd</span> Hugo工程目录</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> git submodule add `Repository地址` public</span></span><br><span class="line"></span><br><span class="line">// 执行发布操作，此时会把所有的文件导出到 public 目录</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hugo</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="built_in">cd</span> public</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 执行git操作，把内容push到GitHub上</span></span><br></pre></td></tr></table></figure>
+<p>过几分钟后，可以打开你的博客地址（地址：<a target="_blank" rel="noopener" href="https://xn--6qqv7i14ofosyrb.github.io">https://你的用户名.github.io</a> )</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2016/10/17/TiledLayer/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/17/TiledLayer/index/" class="post-title-link" itemprop="url">TiledLayer</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-10-17 15:57:45" itemprop="dateCreated datePublished" datetime="2016-10-17T15:57:45+08:00">2016-10-17</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2016/10/17/TiledLayer/index/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/10/17/TiledLayer/index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="ios-tiledlayer性能报告">iOS TiledLayer性能报告</span></h1>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>LSTiledLayer平均耗时</th>
+<th>CATiledLayer平均耗时</th>
+<th>时间减少占比</th>
+<th>处理器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iTouch5 9.3.5</td>
+<td>0.1569</td>
+<td>0.304</td>
+<td>54.11%</td>
+<td>A5</td>
+</tr>
+<tr>
+<td>iPad mini 9.3.5</td>
+<td>0.1395</td>
+<td>0.6558</td>
+<td>78.73%</td>
+<td>A5</td>
+</tr>
+<tr>
+<td>iPad Air 10.2.1</td>
+<td>0.1337</td>
+<td>0.2848</td>
+<td>53.05%</td>
+<td>A7</td>
+</tr>
+<tr>
+<td>iPhone 6s 10.2.1</td>
+<td>0.0515</td>
+<td>0.1091</td>
+<td>52.80%</td>
+<td>A9</td>
+</tr>
+<tr>
+<td>iPhone 7 10.2.1</td>
+<td>0.0409</td>
+<td>0.0928</td>
+<td>55.93%</td>
+<td>A10</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/jsonseng/LSTiledLayer">==项目地址==</a></p>
+<h2><span id="优点相比catiledlayer">优点（相比CATiledLayer）</span></h2>
+<h3><span id="1-兼容更多的api">1、兼容更多的API</span></h3>
+<p>​	内部是使用最简单的CALayer作为其组成原理，最基础的组成。这里说的兼容更多的API，想要举例的是iOS7 drawViewHierarchyInRect，此API在实际真机使用上，“只有一开始渲染的第一屏幕可以截获到图片”，如果滚动一定距离后，进行截图就存在截取到的是一张漆黑的照片。但是对于CATiledLayer本身针对大图滚动情况下的性能优化，必然存在需要滚动的情况。如果开发时，需要快速截图，用此方法只能截取到黑屏照片。</p>
+<p>​	本身截图是一个很耗内存，CPU的操作。drawViewHierarchyInRect虽然官方没有明说，但是经过多次使用，会发现它相比renderInContext要更为合理，renderInContext是会触发drawRect把内容绘制到指定的context，其实相当于重新绘制一次，而drawViewHierarchyInRect并不会触发drawRect，从此可猜测是从显存中获取图源信息渲染成图片。而且==此API可以在子线程获取图片，简直神器。==</p>
+<h3><span id="2-绘制方面情况">2、绘制方面情况</span></h3>
+<blockquote>
+<p>下面图表基于此绘制的计算时间</p>
+</blockquote>
+<p><img src="/assets/images/2016-10-8/IMG_1408.PNG" alt="IMG_1408"></p>
+<p><img src="/assets/images/2016-10-8/%E5%B9%B3%E5%9D%87%E7%BB%98%E5%88%B6%E6%97%B6%E9%97%B4.png" alt="平均绘制时间"></p>
+<p><img src="/assets/images/2016-10-8/%E5%B9%B3%E5%9D%87%E5%87%8F%E5%B0%91%E6%97%B6%E9%97%B4%E5%8D%A0%E6%AF%94.png" alt="平均减少时间占比"></p>
+<blockquote>
+<p>==内部使用合适的算法，高速回收已使用的模块，使内存申请控制在最节省的范围内。超出屏幕的会立即被回收使用到新的区域绘制。合理的并发线程，让CPU尽可能的发挥==</p>
+</blockquote>
+<h2><span id="缺点相比catiledlayer">缺点（相比CATiledLayer）</span></h2>
+<h3><span id="1-内存增长">1、内存增长</span></h3>
+<p>​	凡事有好必然带来相应的坏，CATiledLayer内部的实现可能使用压缩的图片，从contents为CAImageProvider上猜测。但是使用LSTiledLayer，由于内部是CALayer，最基本的元素，由于产生了寄缩图，可以想象成为未压缩的图片。如果每块的大小在256 x 256，每一个父层Layer的scale为1的情况下，根据数据统计，在Retina显示屏下，基本满屏的LSTiledLayer，相比系统CATiledLayer内存要多1.5MB。非Retina情况下，1MB左右。</p>
+<h2><span id="敬请期待">敬请期待</span></h2>
+<p>​	后续会加入主线程切换绘制，CATiledLayer，在为了绘制流畅的同时不影响用户操作，此时引入了次线程绘制，延迟显示。但是对于某些交互情况下，用户并一定高频交互，更加注重视觉时，如果延迟显示，可能存在增加用户焦虑等待的情绪。比如一打开屏幕的时候，想立即看到内容效果。如果此时引入了主线程绘制，是否会让一切更友好，适当的时候改回子线程绘制。所以在接口上，引入线程切换的功能。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2016/09/12/Multi-Screen/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/12/Multi-Screen/index/" class="post-title-link" itemprop="url">从截图到投影的探索</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-09-12 16:13:41" itemprop="dateCreated datePublished" datetime="2016-09-12T16:13:41+08:00">2016-09-12</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2016/09/12/Multi-Screen/index/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/09/12/Multi-Screen/index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="截图">截图</span></h1>
+<p>这是一个老生常谈的话题，但是可否想过高频截图下，速度不够而导致各种主线程卡顿问题。先来看看各种截图的方法吧，然后再来个总结表</p>
+<hr>
+<h2><span id="常规方法renderincontext">常规方法：renderInContext</span></h2>
+<p>此方案的好处在于历史悠久，稳定，保证一定能截出内容。比如我们目前去截取View A的截图，renderInContent会去寻找View A根Layer的contents内容是否可以被渲染到CGContext上，再逐层渲染View A上的子视图。可以理解成从缓存中进行渲染。但是关键是这里渲染的时候，并不单单获取缓存的contents。如果View A及其子视图中存在CATiledLayer，并且drawRect方法被实现的话，那将会引发一连串的drawRect方法被调用，可想而知，为啥这种方法截图存在着风险。在不会触发的情况下，频繁截半屏幕iPad图，能达到55fps。但是一旦使用类似CATiledLayer的情况下，就下降到16fps。下降之速何其恐怖。</p>
+<blockquote>
+<p>对了，可能存在使用CATiledLayer比较复杂的情况下，直接用根视图的Layer是无法正确截图，这个时候，需要用layer.presentationLayer来调用renderInContent才能截取到正确的图片。</p>
+</blockquote>
+<hr>
+<h2><span id="ios7-新出的截图apidrawviewhierarchyinrect">iOS7 新出的截图API：drawViewHierarchyInRect</span></h2>
+<p>此方法呀，速度还是可以滴。无论是使用CALayer，还是CATiledLayer，其帧频依然能达到24fps。它是完全利用view内已经渲染好的contents进行截图。并不会走drawRect这个会弹性变动的方法。</p>
+<blockquote>
+<p>注意，此方法当使用CATiledLayer时，你会发现真机上截图什么内容都没有，坑爹呀。我的猜测是，源于其layer的contents是CAImageProvider，而不同于普通的layer的contents（CABackingStore）。我想苹果官方只是实现了基本视图的截图（截止至iOS9）。提醒下哟，此方法只能获取到设备可视区域</p>
+</blockquote>
+<hr>
+<h2><span id="ios7-新出的截屏视图apisnapshotviewafterscreenupdates">iOS7 新出的截屏视图API：snapshotViewAfterScreenUpdates</span></h2>
+<p>这个方法截取的并非图片，而是与原视图一摸一样的copy View(_UIReplicantView)。在官方的文档中讲述，此方法用于做动画，因为如果对原视图进行一些操作，可能存在刺激里面的重绘等损耗性能的事情。而这个UIReplicantView只是和原视图一致的图像信息，但是各种操作并不会引起什么事情。它的速度非常快，能达到60fps。</p>
+<blockquote>
+<p>注意：此方法只能获取到设备可视区域</p>
+</blockquote>
+<hr>
+<h2><span id="截图性能表">截图性能表</span></h2>
+<p><img src="/assets/images/2016-9-13/screenshotSpeed.png" alt="ScreenShot Speed"></p>
+<blockquote>
+<p>从上图：1、我们可以看出，renderInContext在渲染出一张图时，内存增长相较于其他两个方法还好。但是是否想过一个问题，如果大量快速截图时，内存又没及时释放，是否这是一个恐怖的增长。2、如果当我们不需要一张图，使用一个视图也可以解决问题的时候，snapshotViewAfterScreenUpdates会是一个最好的选择</p>
+</blockquote>
+<div class="breaker"></div>
+# 投影的世界
+<p>投影是什么，把小屏幕的内容投影到一个大屏幕（世人都知道的事情T－T）。可能会有人问苹果官方一插线，或者AirPlay都可以做到无线投影，为什么还要如此麻烦另外做投影功能？官方的投影虽好，是否有想过一个问题是，我们的投影是否达到最大利用化了？当前很多屏幕是4:3，16:9，16:10等等比例，而苹果官方投影，是把当前小屏幕的比例投影到大屏幕上。这样就存在大屏幕可能存在黑边。这也是官方的无奈，毕竟它不知道如果压缩了小屏幕的内容，是否开发本身兼容自动适配。那如果自行控制，也就是要有高效图像信息流。</p>
+<hr>
+<h2><span id="有线投影">有线投影</span></h2>
+<p>有线投影相对简单，它就是多了一个UIScreen，这个就是拓展屏幕的视图。我们只需要在上面创建viewcontroller、window。然后剩下的类似平时写代码操作界面一样。这里顺便提下，为什么上面我提到snapshotViewAfterScreenUpdates这个截取到视图，而不是图片的方法。就是为了这里埋下伏笔，因此有线投影的天然优势，让我们有了环境可以使用此方法。它也成为了截图最快，内存使用最少的最佳方案</p>
+<blockquote>
+<p>有线投影：明显的优点传输不存在问题，但是就存在演讲者操作并不舒适。如果无线投影的性能跟得上，或许无线投影是一个更好的选择</p>
+</blockquote>
+<hr>
+<h2><span id="无线投影目前未深入探究待有成效必会完善请稍等">无线投影：目前未深入探究，待有成效必会完善，请稍等</span></h2>
+<hr>
+<h2><span id="投影与截图的坑">投影与截图的坑</span></h2>
+<p>我相信使用截图方式去投影的团队，很有可能遇到使用renderInContext会存在非常卡顿的效果。而使用iOS7 新截图方法也存在移动时，截图会出现黑影的问题。官方文档讲述过新方法建议在调用完layoutSubView之后才调用，不然可能存在图层未渲染完就开始截图了。官方也提供了一个参数（afterUpdates），虽然这个参数可以确保截出来的没问题，但也存在效率大大下降。下面来罗列一下我想的两个解决方案：</p>
+<h3><span id="方案一多线程截图失败">方案一：多线程截图（失败）</span></h3>
+<p>使用多线程推送？我默默使用了renderInContext／新的截图方式加入afterUpdates为YES。但是默默地忧伤起来，居然卡着不动了。原来内容在主线程刷新，而此时的我想要通过别的线程进行渲染，这可谓死锁。好，那我就想用快速的方法snapshotViewAfterScreenUpdates:NO的方法拿到UIReplicantView，再用UIReplicantView获取截图。最后的结果，又被系统的UIReplicantView坑爹了，其layer的contents（CASlotProxy）也是无法再次获取到图片信息，类似上面的CATiledLayer（CAImageProvider）。在网上和一位小哥聊过，他在webView上也曾经有过这个想过，但只是iOS7有效，后来就没效了（<a target="_blank" rel="noopener" href="https://github.com/akisute/AKWebRenderer">Github项目：AKWebRenderer</a>）。</p>
+<h3><span id="方案二cfrunloop抓渲染时机成功">方案二：CFRunloop抓渲染时机（成功）</span></h3>
+<p>既然新的截图方法，我们无论使用afterUpdates为YES／NO都有其存在的问题。但是我要确保速度能够保证，我毅然地选择了NO（afterUpdates）。获取一个可能存在不完整的截图／视图。此时我就在想，是否我可以抓住渲染完成的一瞬间，然后在那一瞬间截图。这个时候我们需要使用到较为底层的CFRunloop。</p>
+<p><img src="/assets/images/2016-9-13/CFRunloop.png" alt="CFRunloop"></p>
+<figcaption class="caption">CFRunloop逻辑结构</figcaption>
+<br>
+<p>从上图，我们可以看到会调用代码块Source0，Timer，然后就会进入到线程休眠，等待下一个Source0，Timer的唤醒。是否我们可以监听这个时刻，进行截图就会获取到完成时机下的截图／视图。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 函数指针</span><br><span class="line">static void multiDiplayRunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)</span><br><span class="line">&#123;</span><br><span class="line">    if (activity == kCFRunLoopAfterWaiting)</span><br><span class="line">    &#123;</span><br><span class="line">        // do something</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 添加Runloop观察者</span><br><span class="line">CFRunLoopObserverContext context = &#123;0, (__bridge void*)self&#125;;</span><br><span class="line">CFRunLoopObserverRef runloopObserver = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAfterWaiting, NO, 0, &amp;multiDiplayRunloopObserverCallBack, &amp;context);</span><br><span class="line">CFRunLoopAddObserver(CFRunLoopGetMain(), runloopObserver, kCFRunLoopCommonModes);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="breaker"></div>
+# 题外话
+<p>是否有团队遇到过就是想要有个截图，而不是一个视图。drawViewHierarchyInRect在理论上优于传统的renderInContext。因为如果子Layer中存在CATiledLayer，或者WebView等可能都存在真机drawViewHierarchyInRect无法截取实际屏幕显示的内容。欢迎使用<a target="_blank" rel="noopener" href="https://github.com/jsonseng/LSTiledLayer">项目LSTiledLayer</a>，<a target="_blank" rel="noopener" href="http://127.0.0.1:4000/LSTiledLayer-Project/">点击这里会介绍此Layer的特点</a>。</p>
+<blockquote>
+<p><a href="mailTo:luckSeng@gmail.com">如果对以上内容觉得有问题、或者有别的想法，快快邮件我，我等得好着急！！！就这么多先啦！！！</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vince.Zheng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vince.Zheng</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'WyuLW4aF9UlWwhMG7LwEij0G-gzGzoHsz',
+      appKey     : 'GQxmxOlPHcfjhgh3NVcIlUBR',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

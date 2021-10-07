@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jsonseng.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="截图 这是一个老生常谈的话题，但是可否想过高频截图下，速度不够而导致各种主线程卡顿问题。先来看看各种截图的方法吧，然后再来个总结表  常规方法：renderInContext 此方案的好处在于历史悠久，稳定，保证一定能截出内容。比如我们目前去截取View A的截图，renderInContent会去寻找View A根Layer的contents内容是否可以被渲染到CGContext上，再逐层渲染V">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从截图到投影的探索">
+<meta property="og:url" content="https://jsonseng.github.io/2016/09/12/Multi-Screen/index/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:description" content="截图 这是一个老生常谈的话题，但是可否想过高频截图下，速度不够而导致各种主线程卡顿问题。先来看看各种截图的方法吧，然后再来个总结表  常规方法：renderInContext 此方案的好处在于历史悠久，稳定，保证一定能截出内容。比如我们目前去截取View A的截图，renderInContent会去寻找View A根Layer的contents内容是否可以被渲染到CGContext上，再逐层渲染V">
+<meta property="og:locale">
+<meta property="og:image" content="https://jsonseng.github.io/assets/images/2016-9-13/screenshotSpeed.png">
+<meta property="og:image" content="https://jsonseng.github.io/assets/images/2016-9-13/CFRunloop.png">
+<meta property="article:published_time" content="2016-09-12T08:13:41.000Z">
+<meta property="article:modified_time" content="2016-09-12T08:13:41.000Z">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="WPS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsonseng.github.io/assets/images/2016-9-13/screenshotSpeed.png">
+
+<link rel="canonical" href="https://jsonseng.github.io/2016/09/12/Multi-Screen/index/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>从截图到投影的探索 | Vince.Zheng</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vince.Zheng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">这个开发有点懒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2016/09/12/Multi-Screen/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从截图到投影的探索
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-09-12 16:13:41" itemprop="dateCreated datePublished" datetime="2016-09-12T16:13:41+08:00">2016-09-12</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2016/09/12/Multi-Screen/index/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/09/12/Multi-Screen/index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1><span id="截图">截图</span></h1>
+<p>这是一个老生常谈的话题，但是可否想过高频截图下，速度不够而导致各种主线程卡顿问题。先来看看各种截图的方法吧，然后再来个总结表</p>
+<hr>
+<h2><span id="常规方法renderincontext">常规方法：renderInContext</span></h2>
+<p>此方案的好处在于历史悠久，稳定，保证一定能截出内容。比如我们目前去截取View A的截图，renderInContent会去寻找View A根Layer的contents内容是否可以被渲染到CGContext上，再逐层渲染View A上的子视图。可以理解成从缓存中进行渲染。但是关键是这里渲染的时候，并不单单获取缓存的contents。如果View A及其子视图中存在CATiledLayer，并且drawRect方法被实现的话，那将会引发一连串的drawRect方法被调用，可想而知，为啥这种方法截图存在着风险。在不会触发的情况下，频繁截半屏幕iPad图，能达到55fps。但是一旦使用类似CATiledLayer的情况下，就下降到16fps。下降之速何其恐怖。</p>
+<blockquote>
+<p>对了，可能存在使用CATiledLayer比较复杂的情况下，直接用根视图的Layer是无法正确截图，这个时候，需要用layer.presentationLayer来调用renderInContent才能截取到正确的图片。</p>
+</blockquote>
+<hr>
+<h2><span id="ios7-新出的截图apidrawviewhierarchyinrect">iOS7 新出的截图API：drawViewHierarchyInRect</span></h2>
+<p>此方法呀，速度还是可以滴。无论是使用CALayer，还是CATiledLayer，其帧频依然能达到24fps。它是完全利用view内已经渲染好的contents进行截图。并不会走drawRect这个会弹性变动的方法。</p>
+<blockquote>
+<p>注意，此方法当使用CATiledLayer时，你会发现真机上截图什么内容都没有，坑爹呀。我的猜测是，源于其layer的contents是CAImageProvider，而不同于普通的layer的contents（CABackingStore）。我想苹果官方只是实现了基本视图的截图（截止至iOS9）。提醒下哟，此方法只能获取到设备可视区域</p>
+</blockquote>
+<hr>
+<h2><span id="ios7-新出的截屏视图apisnapshotviewafterscreenupdates">iOS7 新出的截屏视图API：snapshotViewAfterScreenUpdates</span></h2>
+<p>这个方法截取的并非图片，而是与原视图一摸一样的copy View(_UIReplicantView)。在官方的文档中讲述，此方法用于做动画，因为如果对原视图进行一些操作，可能存在刺激里面的重绘等损耗性能的事情。而这个UIReplicantView只是和原视图一致的图像信息，但是各种操作并不会引起什么事情。它的速度非常快，能达到60fps。</p>
+<blockquote>
+<p>注意：此方法只能获取到设备可视区域</p>
+</blockquote>
+<hr>
+<h2><span id="截图性能表">截图性能表</span></h2>
+<p><img src="/assets/images/2016-9-13/screenshotSpeed.png" alt="ScreenShot Speed"></p>
+<blockquote>
+<p>从上图：1、我们可以看出，renderInContext在渲染出一张图时，内存增长相较于其他两个方法还好。但是是否想过一个问题，如果大量快速截图时，内存又没及时释放，是否这是一个恐怖的增长。2、如果当我们不需要一张图，使用一个视图也可以解决问题的时候，snapshotViewAfterScreenUpdates会是一个最好的选择</p>
+</blockquote>
+<div class="breaker"></div>
+# 投影的世界
+<p>投影是什么，把小屏幕的内容投影到一个大屏幕（世人都知道的事情T－T）。可能会有人问苹果官方一插线，或者AirPlay都可以做到无线投影，为什么还要如此麻烦另外做投影功能？官方的投影虽好，是否有想过一个问题是，我们的投影是否达到最大利用化了？当前很多屏幕是4:3，16:9，16:10等等比例，而苹果官方投影，是把当前小屏幕的比例投影到大屏幕上。这样就存在大屏幕可能存在黑边。这也是官方的无奈，毕竟它不知道如果压缩了小屏幕的内容，是否开发本身兼容自动适配。那如果自行控制，也就是要有高效图像信息流。</p>
+<hr>
+<h2><span id="有线投影">有线投影</span></h2>
+<p>有线投影相对简单，它就是多了一个UIScreen，这个就是拓展屏幕的视图。我们只需要在上面创建viewcontroller、window。然后剩下的类似平时写代码操作界面一样。这里顺便提下，为什么上面我提到snapshotViewAfterScreenUpdates这个截取到视图，而不是图片的方法。就是为了这里埋下伏笔，因此有线投影的天然优势，让我们有了环境可以使用此方法。它也成为了截图最快，内存使用最少的最佳方案</p>
+<blockquote>
+<p>有线投影：明显的优点传输不存在问题，但是就存在演讲者操作并不舒适。如果无线投影的性能跟得上，或许无线投影是一个更好的选择</p>
+</blockquote>
+<hr>
+<h2><span id="无线投影目前未深入探究待有成效必会完善请稍等">无线投影：目前未深入探究，待有成效必会完善，请稍等</span></h2>
+<hr>
+<h2><span id="投影与截图的坑">投影与截图的坑</span></h2>
+<p>我相信使用截图方式去投影的团队，很有可能遇到使用renderInContext会存在非常卡顿的效果。而使用iOS7 新截图方法也存在移动时，截图会出现黑影的问题。官方文档讲述过新方法建议在调用完layoutSubView之后才调用，不然可能存在图层未渲染完就开始截图了。官方也提供了一个参数（afterUpdates），虽然这个参数可以确保截出来的没问题，但也存在效率大大下降。下面来罗列一下我想的两个解决方案：</p>
+<h3><span id="方案一多线程截图失败">方案一：多线程截图（失败）</span></h3>
+<p>使用多线程推送？我默默使用了renderInContext／新的截图方式加入afterUpdates为YES。但是默默地忧伤起来，居然卡着不动了。原来内容在主线程刷新，而此时的我想要通过别的线程进行渲染，这可谓死锁。好，那我就想用快速的方法snapshotViewAfterScreenUpdates:NO的方法拿到UIReplicantView，再用UIReplicantView获取截图。最后的结果，又被系统的UIReplicantView坑爹了，其layer的contents（CASlotProxy）也是无法再次获取到图片信息，类似上面的CATiledLayer（CAImageProvider）。在网上和一位小哥聊过，他在webView上也曾经有过这个想过，但只是iOS7有效，后来就没效了（<a target="_blank" rel="noopener" href="https://github.com/akisute/AKWebRenderer">Github项目：AKWebRenderer</a>）。</p>
+<h3><span id="方案二cfrunloop抓渲染时机成功">方案二：CFRunloop抓渲染时机（成功）</span></h3>
+<p>既然新的截图方法，我们无论使用afterUpdates为YES／NO都有其存在的问题。但是我要确保速度能够保证，我毅然地选择了NO（afterUpdates）。获取一个可能存在不完整的截图／视图。此时我就在想，是否我可以抓住渲染完成的一瞬间，然后在那一瞬间截图。这个时候我们需要使用到较为底层的CFRunloop。</p>
+<p><img src="/assets/images/2016-9-13/CFRunloop.png" alt="CFRunloop"></p>
+<figcaption class="caption">CFRunloop逻辑结构</figcaption>
+<br>
+<p>从上图，我们可以看到会调用代码块Source0，Timer，然后就会进入到线程休眠，等待下一个Source0，Timer的唤醒。是否我们可以监听这个时刻，进行截图就会获取到完成时机下的截图／视图。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 函数指针</span><br><span class="line">static void multiDiplayRunloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)</span><br><span class="line">&#123;</span><br><span class="line">    if (activity == kCFRunLoopAfterWaiting)</span><br><span class="line">    &#123;</span><br><span class="line">        // do something</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 添加Runloop观察者</span><br><span class="line">CFRunLoopObserverContext context = &#123;0, (__bridge void*)self&#125;;</span><br><span class="line">CFRunLoopObserverRef runloopObserver = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAfterWaiting, NO, 0, &amp;multiDiplayRunloopObserverCallBack, &amp;context);</span><br><span class="line">CFRunLoopAddObserver(CFRunLoopGetMain(), runloopObserver, kCFRunLoopCommonModes);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="breaker"></div>
+# 题外话
+<p>是否有团队遇到过就是想要有个截图，而不是一个视图。drawViewHierarchyInRect在理论上优于传统的renderInContext。因为如果子Layer中存在CATiledLayer，或者WebView等可能都存在真机drawViewHierarchyInRect无法截取实际屏幕显示的内容。欢迎使用<a target="_blank" rel="noopener" href="https://github.com/jsonseng/LSTiledLayer">项目LSTiledLayer</a>，<a target="_blank" rel="noopener" href="http://127.0.0.1:4000/LSTiledLayer-Project/">点击这里会介绍此Layer的特点</a>。</p>
+<blockquote>
+<p><a href="mailTo:luckSeng@gmail.com">如果对以上内容觉得有问题、或者有别的想法，快快邮件我，我等得好着急！！！就这么多先啦！！！</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/WPS/" rel="tag"># WPS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/08/30/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/%E7%AC%94%E7%94%BB%E7%BB%98%E5%88%B6/" rel="prev" title="笔迹绘制探索">
+      <i class="fa fa-chevron-left"></i> 笔迹绘制探索
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/10/17/TiledLayer/index/" rel="next" title="TiledLayer">
+      TiledLayer <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">截图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">常规方法：renderInContext</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">iOS7 新出的截图API：drawViewHierarchyInRect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">iOS7 新出的截屏视图API：snapshotViewAfterScreenUpdates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">截图性能表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">有线投影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">无线投影：目前未深入探究，待有成效必会完善，请稍等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">投影与截图的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">方案一：多线程截图（失败）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">方案二：CFRunloop抓渲染时机（成功）</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vince.Zheng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vince.Zheng</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'WyuLW4aF9UlWwhMG7LwEij0G-gzGzoHsz',
+      appKey     : 'GQxmxOlPHcfjhgh3NVcIlUBR',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

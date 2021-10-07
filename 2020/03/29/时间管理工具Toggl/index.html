@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jsonseng.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1 前言2 基本环境2.1 如何记录3 回顾分析4 日常小技巧5 回顾总结 1 前言 我曾遇到过不知道自己一天工作下来，我具体做了什么，时间用在了什么地方。多而杂，频繁切换上下文。这个时候我接触到了Toggl这款软件。 2 基本环境 这款软件，它主要可以从几个维度去统计你做的事情：  Description：具体做的事情描述 Project：这个事情所在的项目维度 Tags：属于哪个维度的工作（这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时间管理工具Toggl">
+<meta property="og:url" content="https://jsonseng.github.io/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/index.html">
+<meta property="og:site_name" content="Vince.Zheng">
+<meta property="og:description" content="1 前言2 基本环境2.1 如何记录3 回顾分析4 日常小技巧5 回顾总结 1 前言 我曾遇到过不知道自己一天工作下来，我具体做了什么，时间用在了什么地方。多而杂，频繁切换上下文。这个时候我接触到了Toggl这款软件。 2 基本环境 这款软件，它主要可以从几个维度去统计你做的事情：  Description：具体做的事情描述 Project：这个事情所在的项目维度 Tags：属于哪个维度的工作（这">
+<meta property="og:locale">
+<meta property="og:image" content="https://jsonseng.github.io/assert/puml/400646c2563e9641bc99ca00f883673d9881fca889fdbff0183556f579a1010f.svg">
+<meta property="article:published_time" content="2020-03-29T04:04:49.000Z">
+<meta property="article:modified_time" content="2020-03-29T04:04:49.000Z">
+<meta property="article:author" content="Vince.Zheng">
+<meta property="article:tag" content="效率工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsonseng.github.io/assert/puml/400646c2563e9641bc99ca00f883673d9881fca889fdbff0183556f579a1010f.svg">
+
+<link rel="canonical" href="https://jsonseng.github.io/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>时间管理工具Toggl | Vince.Zheng</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Vince.Zheng" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vince.Zheng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">这个开发有点懒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://jsonseng.github.io/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vince.Zheng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vince.Zheng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          时间管理工具Toggl
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 12:04:49" itemprop="dateCreated datePublished" datetime="2020-03-29T12:04:49+08:00">2020-03-29</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/29/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Toggl/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><div class="table-of-contents"><ul><li><a href="#1-%E5%89%8D%E8%A8%80">1 前言</a></li><li><a href="#2-%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83">2 基本环境</a><ul><li><a href="#2.1-%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95">2.1 如何记录</a></li></ul></li><li><a href="#3-%E5%9B%9E%E9%A1%BE%E5%88%86%E6%9E%90">3 回顾分析</a></li><li><a href="#4-%E6%97%A5%E5%B8%B8%E5%B0%8F%E6%8A%80%E5%B7%A7">4 日常小技巧</a></li><li><a href="#5-%E5%9B%9E%E9%A1%BE%E6%80%BB%E7%BB%93">5 回顾总结</a></li></ul></div></p>
+<h1><span id="1-前言">1 前言</span></h1>
+<p>我曾遇到过不知道自己一天工作下来，我具体做了什么，时间用在了什么地方。多而杂，频繁切换上下文。这个时候我接触到了<a target="_blank" rel="noopener" href="https://toggl.com">Toggl这款软件</a>。</p>
+<h1><span id="2-基本环境">2 基本环境</span></h1>
+<p>这款软件，它主要可以从几个维度去统计你做的事情：</p>
+<ol>
+<li>Description：具体做的事情描述</li>
+<li>Project：这个事情所在的项目维度</li>
+<li>Tags：属于哪个维度的工作（这里后续再详细讲解一下我的用法）</li>
+</ol>
+<p>这个软件支持多个平台，比如有以下：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/app/timer">Toggl 网页版</a></li>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/toggl-desktop/">Toggl 桌面版</a></li>
+<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.toggl.giskard">Toggl 安卓端</a></li>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/mobile-time-tracking-app/">Toggl iOS端</a></li>
+</ol>
+<h2><span id="21-如何记录">2.1 如何记录</span></h2>
+<p>平时我在做一件事情的时候，会先使用Toggl 桌面版(Mac版本)，开启一次记录，这里有两种方式：</p>
+<ol>
+<li>开启完全全新的任务</li>
+<li>延续上一次未完成的任务</li>
+</ol>
+<h3><span id="211-全新任务的开启">2.1.1 全新任务的开启</span></h3>
+<p>开启全新的任务，可以使用快捷键 <code>Command + N</code>。这里客户端不会让你填写信息，此时你需要再使用<code>Command + E</code>，可以编辑当下进行的任务。</p>
+<ol>
+<li>Description：常规的填写，这里我会尽量简化信息，但是也要保证我下次查看的时候能够知道当时做什么。</li>
+</ol>
+<div class="alert alert-info" role="alert">
+<p>如果你对于你做的事情有相关的link，我认为是可以带上，这样好方便跳转查阅更多的信息。</p>
+</div>
+<ol start="2">
+<li>Project：这个是比较大的维度，跟你做的具体项目上挂钩，你可以知道你为了某个项目具体的投入与产出比情况。此选项可以多选，我平时一般只是规划成一个项目，对于后续查看Reports时，会相对比较方便。</li>
+<li>Tags：打标签这个也可以多选。对于我来讲，我会从别的维度去查看自己的。比如你做一个项目的时候，会划分 开会，方案设计，方案落地等等，此处可以看你把时间大头放在什么地方。</li>
+</ol>
+<div class="alert alert-warning" role="alert">
+<p>目前我在Tags方面划分了以下多个角度：</p>
+<ul>
+<li>计划外的方案Review：从这个维度可以知道有多少方案Review需要我去做，是否有跟别的同事做重了。如何商定与别的同事分工合作。</li>
+<li>计划外的会议：从这个维度可以知道一些临时拉入的会议占比情况如何，是否可以与别的技术同事分工合作，减少彼此时间的重叠。</li>
+<li>协助：在一些同事临时叫协助的时候，时间长度的损耗与频率有多高，是否这部分需要有一定的流程建设，把时间规划好，能最大程度保证原计划的内容完成度</li>
+<li>研发：这块指的是具体写代码的时间</li>
+<li>研发方案设计：用于一个功能在做的时候，去书写UML方案设计</li>
+<li>研发会议：功能在开展前，进行技术Review会议，明确分工</li>
+<li>研发方案Review：计划安排的功能上，进行方案Review与日常的代码Review</li>
+<li>研发需求整理：整理一个功能的需求背景，相关点的情况</li>
+</ul>
+</div>
+<h3><span id="212-延续上一次任务">2.1.2 延续上一次任务</span></h3>
+<p>对于因为一些原因打断了原来的任务，此时需要再次投入继续完成，此时可以在list里面找到那一项，点击右侧的开始按钮。</p>
+<h1><span id="3-回顾分析">3 回顾分析</span></h1>
+<p>我平日里，会从 周/月/季度 的角度回顾总结我自己的工作中时间上的耗时，<a target="_blank" rel="noopener" href="https://toggl.com/app/reports/summary">在网页版的Reports</a>可以查看到我自己在其中的投入情况，以上的事情是否很繁琐与麻烦呢？做的意义是什么，这里我罗列一下我的看法：</p>
+<ol>
+<li>比如从tags上刷选，可以看到具体是什么事情blocks住我，让我的计划并没有按照我的想法执行。此时可以向上反馈，请求上级能通过什么方式帮助到自己。</li>
+<li>当填写公司工时系统时，可以通过<a target="_blank" rel="noopener" href="https://toggl.com/app/timer">网页版复制粘贴到工时系统</a></li>
+<li>当进行 月度/季度 总结的时候，也可以通过这个查看到自己做过的每一个事情，具体的信息遗留，提供更多有力的证据去证明自己曾经的输出。</li>
+</ol>
+<p>::: danger<br>
+这里我想讲那么一点，管理不是只有上级管理下级，还有<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E5%90%91%E4%B8%8A%E7%AE%A1%E7%90%86">向上管理</a>，需要让上级知道你做得怎样，不要期望上级是你肚子里的虫子，他能了解你的一切。这是一件对你自己工作输出负责的事情。</p>
+<img src="/assert/puml/400646c2563e9641bc99ca00f883673d9881fca889fdbff0183556f579a1010f.svg">
+<p>:::</p>
+<h1><span id="4-日常小技巧">4 日常小技巧</span></h1>
+<p>对于不同的客户端，我有不同的使用场景，这里可以罗列一下我日常的使用方式：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/app/timer">Toggl 网页版</a>：用于填写工时，查看Reports时来查看</li>
+<li><a target="_blank" rel="noopener" href="https://toggl.com/toggl-desktop/">Toggl 桌面版</a>：由于网页版长久打开看起来存在内存泄漏，或者打开时会有时间上的损耗，所以一般使用客户端，能尽可能减少电脑的负荷。也是日常用于记录的工具</li>
+<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.toggl.giskard">Toggl 安卓端</a>/<a target="_blank" rel="noopener" href="https://toggl.com/mobile-time-tracking-app/">Toggl iOS端</a>：一般是用于电脑不在身边但是需要记录，或者离开电脑忘记关闭计时器时使用的。</li>
+</ol>
+<h1><span id="5-回顾总结">5 回顾总结</span></h1>
+<p>时间总是不断流逝，严谨对待自己的每一分每一秒，回顾与总结，我相信我们都会变得越来越好</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag"># 效率工具</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/28/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%85%A8%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" rel="prev" title="网页浏览全键盘操作">
+      <i class="fa fa-chevron-left"></i> 网页浏览全键盘操作
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/30/markdown-it-alerts%E8%AF%AD%E6%B3%95%E6%94%AF%E6%8C%81/" rel="next" title="markdown-it-alerts语法支持">
+      markdown-it-alerts语法支持 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 基本环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">2.1 如何记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">2.1.1 全新任务的开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">2.1.2 延续上一次任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 回顾分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 日常小技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 回顾总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vince.Zheng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vince.Zheng</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'WyuLW4aF9UlWwhMG7LwEij0G-gzGzoHsz',
+      appKey     : 'GQxmxOlPHcfjhgh3NVcIlUBR',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
