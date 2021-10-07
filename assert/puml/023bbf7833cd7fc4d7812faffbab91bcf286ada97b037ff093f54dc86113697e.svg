@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="94px" preserveAspectRatio="none" style="width:420px;height:94px;" version="1.1" viewBox="0 0 420 94" width="420px" zoomAndPan="magnify"><defs><filter height="300%" id="f1ovtp3tj7ixrh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[3105c235ecd854154e5019972cc4e034]
+class markdown-it-alerts--><rect codeLine="2" fill="#FEFECE" filter="url(#f1ovtp3tj7ixrh)" height="73.9102" id="markdown-it-alerts" style="stroke: #A80036; stroke-width: 1.5;" width="146" x="7" y="7"/><ellipse cx="22" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M24.4731,29.1431 Q23.8921,29.4419 23.2529,29.5913 Q22.6138,29.7407 21.9082,29.7407 Q19.4014,29.7407 18.0815,28.0889 Q16.7617,26.437 16.7617,23.3159 Q16.7617,20.1865 18.0815,18.5347 Q19.4014,16.8828 21.9082,16.8828 Q22.6138,16.8828 23.2612,17.0322 Q23.9087,17.1816 24.4731,17.4805 L24.4731,20.2031 Q23.8423,19.6221 23.2488,19.3523 Q22.6553,19.0825 22.0244,19.0825 Q20.6797,19.0825 19.9949,20.1492 Q19.3101,21.2158 19.3101,23.3159 Q19.3101,25.4077 19.9949,26.4744 Q20.6797,27.541 22.0244,27.541 Q22.6553,27.541 23.2488,27.2712 Q23.8423,27.0015 24.4731,26.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="114" x="36" y="27.5352">markdown-it-alerts</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="152" y1="39" y2="39"/><ellipse cx="18" cy="50" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="43" x="27" y="53.6348">success</text><ellipse cx="18" cy="62.9551" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="21" x="27" y="66.5898">info</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="152" y1="72.9102" y2="72.9102"/><!--MD5=[6581947413c9e8cfa4f027405f9dbd2f]
+class VNote--><rect codeLine="7" fill="#FEFECE" filter="url(#f1ovtp3tj7ixrh)" height="73.9102" id="VNote" style="stroke: #A80036; stroke-width: 1.5;" width="99" x="307.5" y="7"/><ellipse cx="336.9" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M339.3731,29.1431 Q338.7921,29.4419 338.1529,29.5913 Q337.5138,29.7407 336.8082,29.7407 Q334.3014,29.7407 332.9815,28.0889 Q331.6617,26.437 331.6617,23.3159 Q331.6617,20.1865 332.9815,18.5347 Q334.3014,16.8828 336.8082,16.8828 Q337.5138,16.8828 338.1612,17.0322 Q338.8087,17.1816 339.3731,17.4805 L339.3731,20.2031 Q338.7423,19.6221 338.1488,19.3523 Q337.5553,19.0825 336.9244,19.0825 Q335.5797,19.0825 334.8949,20.1492 Q334.2101,21.2158 334.2101,23.3159 Q334.2101,25.4077 334.8949,26.4744 Q335.5797,27.541 336.9244,27.541 Q337.5553,27.541 338.1488,27.2712 Q338.7423,27.0015 339.3731,26.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="354.1" y="27.5352">VNote</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="308.5" x2="405.5" y1="39" y2="39"/><ellipse cx="318.5" cy="50" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="327.5" y="53.6348">alert-success</text><ellipse cx="318.5" cy="62.9551" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="51" x="327.5" y="66.5898">alert-info</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="308.5" x2="405.5" y1="72.9102" y2="72.9102"/><!--MD5=[b88f8eab0de795058a830d480f4483f3]
+link markdown-it-alerts to VNote--><path codeLine="12" d="M153.14,44 C199.81,44 259.33,44 301.99,44 " fill="none" id="markdown-it-alerts-to-VNote" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="307.1,44,298.1,40,302.1,44,298.1,48,307.1,44" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="118" x="171.25" y="37.5684">markdown语法差异</text><!--MD5=[566a1d155e53ca663bfb4bc7c79cd353]
+@startuml
+
+class markdown-it-alerts {
+    + success
+    + info
+}
+
+class VNote {
+    + alert-success
+    + alert-info
+}
+
+"markdown-it-alerts" -> VNote: markdown语法差异
+
+@enduml
+
+PlantUML version 1.2020.19(Mon Oct 12 23:10:01 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

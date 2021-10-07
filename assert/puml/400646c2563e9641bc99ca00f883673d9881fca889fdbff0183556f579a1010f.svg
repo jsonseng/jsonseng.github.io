@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="304px" preserveAspectRatio="none" style="width:399px;height:304px;" version="1.1" viewBox="0 0 399 304" width="399px" zoomAndPan="magnify"><defs><filter height="300%" id="fdbp6lnrh1k81" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fdbp6lnrh1k81)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="174" x="10" y="132.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="154" x="20" y="156.5117">什么时候需要主动汇报？</text><rect fill="#FEFECE" filter="url(#fdbp6lnrh1k81)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="234" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="244" y="43.5352">完成工作时</text><path d="M184,151.2207 L194,151.2207 C209,151.2207 209,38.2441 224,38.2441 L234,38.2441 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fdbp6lnrh1k81)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="234" y="76.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="244" y="100.0234">工作进行时</text><path d="M184,151.2207 L194,151.2207 C209,151.2207 209,94.7324 224,94.7324 L234,94.7324 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fdbp6lnrh1k81)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="146" x="234" y="132.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="244" y="156.5117">工作将会产生拖延时</text><path d="M184,151.2207 L194,151.2207 C209,151.2207 209,151.2207 224,151.2207 L234,151.2207 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fdbp6lnrh1k81)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="234" y="189.4648"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="244" y="213">工作出问题时</text><path d="M184,151.2207 L194,151.2207 C209,151.2207 209,207.709 224,207.709 L234,207.709 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fdbp6lnrh1k81)" height="36.4883" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="234" y="245.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="244" y="269.4883">工作顺利时</text><path d="M184,151.2207 L194,151.2207 C209,151.2207 209,264.1973 224,264.1973 L234,264.1973 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[71e8fec95cce52e2b7f9e15b62369a2d]
+@startmindmap
+
+* 什么时候需要主动汇报？
+** 完成工作时
+** 工作进行时
+** 工作将会产生拖延时
+** 工作出问题时
+** 工作顺利时
+
+@endmindmap
+
+PlantUML version 1.2020.19(Mon Oct 12 23:10:01 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>
